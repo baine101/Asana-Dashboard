@@ -1,0 +1,121 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesResources;
+use Torann\LaravelAsana\Asana;
+use Config;
+
+class Controller extends BaseController
+{
+    use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
+
+    public $config;
+    public $asana;
+
+    public function __contruct(){
+
+        //define config settings and make new instance
+        $this->config = Config::get('asana');
+        $this->asana = new Asana($this->config);
+    }
+
+    public function workspace(){
+
+        global $workspace;
+
+        //define config settings and make new instance
+        $this->config = Config::get('asana');
+        $this->asana = new Asana($this->config);
+
+        //get workspace object
+        $workspace = $this->asana->getWorkspaces();
+
+        //convert workspace object to string
+        $workspace = json_decode(json_encode($workspace), true);
+
+        return $workspace;
+        //close workspace function
+    }
+
+    public function users($workspaceId){
+
+        //get all users in the workspace assign them to userNameArray
+        $userNameArray = $this->asana->getWorkspaceUsers($workspaceId);
+
+        //convert name object to string
+        $userNameArray = json_decode(json_encode($userNameArray), true);
+
+        return $userNameArray;
+        //close users function
+    }
+
+    public function tasks($workspace, $userNameId){
+
+        //call get workspace tasks
+        $tasks = $this->asana->getWorkspaceTasks($workspace, $userNameId);
+
+        //convert tasks object to string
+        $tasks = json_decode(json_encode($tasks), true);
+
+        return $tasks;
+        //close tasks function
+    }
+
+
+    public function buildArray(){
+
+        $masterArray = array();
+
+        //return the workspace array
+        $workspace = $this->workspace();
+        $workspace = $workspace['data'];
+
+        foreach($workspace as $wsKey => $wsData) {
+
+            $wsId = $wsData['id'];
+            $wsName = $wsData['name'];
+
+            //set first array elements to be workspaces
+            $masterArray[$wsKey] = $wsData;
+
+            //call users function
+            $users = $this::users($wsId);
+            //convert users object to string
+            $users = json_decode(json_encode($users), true);
+
+            foreach($users['data'] as $userKey => $userData){
+
+                $userId = $userData['id'];
+
+                //set second array elements to be users
+                $masterArray[$wsKey][$userKey] = $userData;
+
+                //call tasks function
+                $tasks = $this::tasks($wsId,$userId);
+
+                foreach($tasks  as $taskKey => $taskData){
+
+                    //set third array elements to be tasks
+                    $masterArray[$wsKey][$userKey][] = $taskData;
+
+
+                //close foreach task array
+                }
+            //close foreach userNameArray
+            }
+        //close foreach workspace id
+        }
+
+       // dd($masterArray);
+        return view('welcome', compact("masterArray"));
+
+    //close function buildArray
+    }
+//close controller class
+}
+
