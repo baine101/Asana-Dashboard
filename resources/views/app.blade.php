@@ -8,15 +8,19 @@
 
     <!-- asana-dash stylesheet -->
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+    <!-- iScroll -->
+    <script type="text/javascript" src="{{ asset('iscroll-master/build/iscroll.js') }}"></script>
+
+    <script type="text/javascript" src="{{ asset('iscroll-master/build/myscroll.js') }}"></script>
 
 </head>
+
 <body>
 
 
-<div class="container-fluid">
-
     @yield('content')
-    </div>
+
+
 
 @yield('footer')
 

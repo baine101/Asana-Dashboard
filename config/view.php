@@ -12,7 +12,7 @@ return [
     | the usual Laravel view path has already been registered for you.
     |
     */
-
+    'cache' => false,
     'paths' => [
         realpath(base_path('resources/views')),
     ],

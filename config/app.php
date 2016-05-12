@@ -205,7 +205,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Asana' => Torann\LaravelAsana\Facade::class,
-
     ],
 
 ];

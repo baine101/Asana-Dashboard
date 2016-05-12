@@ -145,7 +145,6 @@ class Controller extends BaseController
         
         $masterArray = json_decode(json_encode($masterArray),true);
 
-
         return $masterArray;
     //close function buildArray
     }
