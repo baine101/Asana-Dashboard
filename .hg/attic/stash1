@@ -1,0 +1,350 @@
+# HG changeset patch
+# User baine101 <alex.waine@juicymedia.co.uk>
+# Date 1462999639 25200
+# Parent  8e2db47e4a11c64caf8f2eebc73bac26407f724b
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml
++++ b/.idea/workspace.xml
+@@ -3,10 +3,12 @@
+   <component name="AnalysisUIOptions">
+     <option name="SCOPE_TYPE" value="3" />
+   </component>
++  <component name="BookmarkManager">
++    <bookmark url="file://$PROJECT_DIR$/app/Http/Controllers/UpdateController.php" line="35" mnemonic="8" />
++  </component>
+   <component name="ChangeListManager">
+     <list default="true" id="8e120d74-3275-4d2c-aa67-1f9bd3934592" name="Default" comment="">
+       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
+     </list>
+     <ignored path="asana-dash.iws" />
+     <ignored path=".idea/workspace.xml" />
+@@ -28,11 +30,11 @@
+   </component>
+   <component name="FileEditorManager">
+     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+-      <file leaf-file-name="welcome.blade.php" pinned="false" current-in-tab="false">
++      <file leaf-file-name="welcome.blade.php" pinned="false" current-in-tab="true">
+         <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state vertical-scroll-proportion="0.0">
+-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
++            <state vertical-scroll-proportion="0.039443154">
++              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+               <folding />
+             </state>
+           </provider>
+@@ -41,8 +43,8 @@
+       <file leaf-file-name="Controller.php" pinned="false" current-in-tab="false">
+         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state vertical-scroll-proportion="-3.7307692">
+-              <caret line="136" column="49" selection-start-line="136" selection-start-column="49" selection-end-line="137" selection-end-column="21" />
++            <state vertical-scroll-proportion="-94.15385">
++              <caret line="144" column="28" selection-start-line="144" selection-start-column="28" selection-end-line="144" selection-end-column="28" />
+               <folding>
+                 <element signature="e#40#85#0#PHP" expanded="true" />
+               </folding>
+@@ -50,12 +52,26 @@
+           </provider>
+         </entry>
+       </file>
+-      <file leaf-file-name="readme.md" pinned="false" current-in-tab="true">
+-        <entry file="file://$PROJECT_DIR$/readme.md">
++      <file leaf-file-name="UpdateController.php" pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UpdateController.php">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state vertical-scroll-proportion="0.17770036">
+-              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+-              <folding />
++            <state vertical-scroll-proportion="-22.23077">
++              <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
++              <folding>
++                <element signature="e#40#68#0#PHP" expanded="true" />
++              </folding>
++            </state>
++          </provider>
++        </entry>
++      </file>
++      <file leaf-file-name="DisplayController.php" pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DisplayController.php">
++          <provider selected="true" editor-type-id="text-editor">
++            <state vertical-scroll-proportion="-18.307692">
++              <caret line="28" column="49" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="49" />
++              <folding>
++                <element signature="e#40#68#0#PHP" expanded="true" />
++              </folding>
+             </state>
+           </provider>
+         </entry>
+@@ -63,9 +79,11 @@
+       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
+         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state vertical-scroll-proportion="0.0">
+-              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+-              <folding />
++            <state vertical-scroll-proportion="-11.769231">
++              <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
++              <folding>
++                <element signature="e#7#392#0#PHP" expanded="true" />
++              </folding>
+             </state>
+           </provider>
+         </entry>
+@@ -110,10 +128,12 @@
+         <option value="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" />
+         <option value="$PROJECT_DIR$/resources/views/app.blade.php" />
+         <option value="$PROJECT_DIR$/config/cache.php" />
++        <option value="$PROJECT_DIR$/readme.md" />
++        <option value="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
++        <option value="$PROJECT_DIR$/app/Http/routes.php" />
++        <option value="$PROJECT_DIR$/app/Http/Controllers/DisplayController.php" />
++        <option value="$PROJECT_DIR$/app/Http/Controllers/UpdateController.php" />
+         <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
+-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
+-        <option value="$PROJECT_DIR$/app/Http/Controllers/Controller.php" />
+-        <option value="$PROJECT_DIR$/readme.md" />
+       </list>
+     </option>
+   </component>
+@@ -181,6 +201,60 @@
+               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+             </PATH_ELEMENT>
+           </PATH>
++          <PATH>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="asana-dash" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
++            </PATH_ELEMENT>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="asana-dash" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
++            </PATH_ELEMENT>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="app" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
++            </PATH_ELEMENT>
++          </PATH>
++          <PATH>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="asana-dash" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
++            </PATH_ELEMENT>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="asana-dash" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
++            </PATH_ELEMENT>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="app" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
++            </PATH_ELEMENT>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="Http" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
++            </PATH_ELEMENT>
++          </PATH>
++          <PATH>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="asana-dash" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
++            </PATH_ELEMENT>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="asana-dash" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
++            </PATH_ELEMENT>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="app" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
++            </PATH_ELEMENT>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="Http" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
++            </PATH_ELEMENT>
++            <PATH_ELEMENT>
++              <option name="myItemId" value="Controllers" />
++              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
++            </PATH_ELEMENT>
++          </PATH>
+         </subPane>
+       </pane>
+     </panes>
+@@ -294,7 +368,9 @@
+       <provider selected="true" editor-type-id="text-editor">
+         <state vertical-scroll-proportion="0.0">
+           <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+-          <folding />
++          <folding>
++            <element signature="e#7#392#0#PHP" expanded="true" />
++          </folding>
+         </state>
+       </provider>
+     </entry>
+@@ -342,7 +418,9 @@
+       <provider selected="true" editor-type-id="text-editor">
+         <state vertical-scroll-proportion="0.0">
+           <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+-          <folding />
++          <folding>
++            <element signature="e#7#392#0#PHP" expanded="true" />
++          </folding>
+         </state>
+       </provider>
+     </entry>
+@@ -417,41 +495,71 @@
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
+-      <provider selected="true" editor-type-id="text-editor">
+-        <state vertical-scroll-proportion="0.0">
+-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+-          <folding />
+-        </state>
+-      </provider>
+-    </entry>
+     <entry file="file://$PROJECT_DIR$/asana-dash.png">
+       <provider selected="true" editor-type-id="images">
+         <state />
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
++    <entry file="file://$PROJECT_DIR$/readme.md">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state vertical-scroll-proportion="0.0">
+-          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
++        <state vertical-scroll-proportion="0.2369338">
++          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
++          <folding />
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/storage/framework/cache/19/ed/19edc1210777ba4d45049c29280d9cc5e1064c25">
++      <provider selected="true" editor-type-id="text-editor">
++        <state vertical-scroll-proportion="0.22972973">
++          <caret line="0" column="2029" selection-start-line="0" selection-start-column="2028" selection-end-line="0" selection-end-column="2029" />
+           <folding />
+         </state>
+       </provider>
+     </entry>
+     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state vertical-scroll-proportion="-3.7307692">
+-          <caret line="136" column="49" selection-start-line="136" selection-start-column="49" selection-end-line="137" selection-end-column="21" />
++        <state vertical-scroll-proportion="-94.15385">
++          <caret line="144" column="28" selection-start-line="144" selection-start-column="28" selection-end-line="144" selection-end-column="28" />
+           <folding>
+             <element signature="e#40#85#0#PHP" expanded="true" />
+           </folding>
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/readme.md">
++    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UpdateController.php">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state vertical-scroll-proportion="0.17770036">
+-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
++        <state vertical-scroll-proportion="-22.23077">
++          <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
++          <folding>
++            <element signature="e#40#68#0#PHP" expanded="true" />
++          </folding>
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
++      <provider selected="true" editor-type-id="text-editor">
++        <state vertical-scroll-proportion="-11.769231">
++          <caret line="18" column="44" selection-start-line="18" selection-start-column="44" selection-end-line="18" selection-end-column="44" />
++          <folding>
++            <element signature="e#7#392#0#PHP" expanded="true" />
++          </folding>
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/DisplayController.php">
++      <provider selected="true" editor-type-id="text-editor">
++        <state vertical-scroll-proportion="-18.307692">
++          <caret line="28" column="49" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="49" />
++          <folding>
++            <element signature="e#40#68#0#PHP" expanded="true" />
++          </folding>
++        </state>
++      </provider>
++    </entry>
++    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
++      <provider selected="true" editor-type-id="text-editor">
++        <state vertical-scroll-proportion="0.039443154">
++          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+           <folding />
+         </state>
+       </provider>
+diff --git a/app/Http/Controllers/Controller.php b/app/Http/Controllers/Controller.php
+--- a/app/Http/Controllers/Controller.php
++++ b/app/Http/Controllers/Controller.php
+@@ -145,31 +145,6 @@
+         return $masterArray;
+     //close function buildArray
+     }
+-
+-    public function cacheIn(){
+-
+-        $masterArray = $this->buildArray();
+-
+-        Cache::put('key', $masterArray, 3);
+-
+-        return true;
+-    }
+-
+-    public function cacheOut()
+-    {
+-
+-        $this->buildArray();
+-
+-
+-  //      $list = array('id','name',array('ids','names',array('idss','namess')));
+-  //      Cache::put('key', $masterArray, 3);
+-
+-  //      $cache = Cache::get('key');
+-  //      $cache = json_decode(json_encode($cache),true);
+-
+-       // dd($cache);
+-  //      return view('welcome', compact("cache"));
+-    }
+ //close controller class
+ }
+ 
+diff --git a/app/Http/routes.php b/app/Http/routes.php
+--- a/app/Http/routes.php
++++ b/app/Http/routes.php
+@@ -16,4 +16,6 @@
+ //});
+ 
+ 
+-Route::get('/' , 'Controller@cacheOut');
++Route::get('/' , 'DisplayController@display');
++
++Route::get('/update' , 'UpdateController@cacheIn');
+\ No newline at end of file
+diff --git a/resources/views/welcome.blade.php b/resources/views/welcome.blade.php
+--- a/resources/views/welcome.blade.php
++++ b/resources/views/welcome.blade.php
+@@ -1,8 +1,8 @@
+ @extends('app')
+ 
+ @section('content')
+-
+-    @foreach($cache as $masterKey => $workspace)
++    
++    @foreach($value as $masterKey => $workspace)
+ 
+         <div class="content">
+             <div class="title text-center"><h1>Asana Dashboard - {{ $workspace['name'] }} </h1></div>
+diff --git a/storage/framework/sessions/f0000097c2c5af496f45f48b0ab45761c0b7c8b2 b/storage/framework/sessions/f0000097c2c5af496f45f48b0ab45761c0b7c8b2
+--- a/storage/framework/sessions/f0000097c2c5af496f45f48b0ab45761c0b7c8b2
++++ b/storage/framework/sessions/f0000097c2c5af496f45f48b0ab45761c0b7c8b2
+@@ -1,1 +1,1 @@
+-a:4:{s:6:"_token";s:40:"ahxJsIaSQxXuMcVQPexGfv2u4u34p2rfWXPeRLEe";s:9:"_previous";a:1:{s:3:"url";s:28:"http://asana-dash.local:8000";}s:9:"_sf2_meta";a:3:{s:1:"u";i:1462984033;s:1:"c";i:1462984033;s:1:"l";s:1:"0";}s:5:"flash";a:2:{s:3:"old";a:0:{}s:3:"new";a:0:{}}}
+\ No newline at end of file
++a:4:{s:6:"_token";s:40:"ahxJsIaSQxXuMcVQPexGfv2u4u34p2rfWXPeRLEe";s:9:"_previous";a:1:{s:3:"url";s:28:"http://asana-dash.local:8000";}s:5:"flash";a:2:{s:3:"old";a:0:{}s:3:"new";a:0:{}}s:9:"_sf2_meta";a:3:{s:1:"u";i:1462998265;s:1:"c";i:1462984033;s:1:"l";s:1:"0";}}
+\ No newline at end of file
