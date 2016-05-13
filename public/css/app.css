@@ -8,11 +8,52 @@ body {
   background: black;
   color: whitesmoke;
   font-size: 12px;
-  font-family: ubuntu, helvetica, arial; }
+  font-family: ubuntu, helvetica, arial;
+  overflow-x: hidden; }
+  body .logo {
+    padding: 30px; }
 
-.scroller .collum {
-  width: 300px;
-  float: left; }
+.head {
+  height: 50px; }
+  .head .imghead1 {
+    padding-left: 45px;
+    display: block;
+    position: relative;
+    float: left;
+    height: 70%;
+    width: 70%; }
+  .head .imghead2 {
+    float: right; }
+  .head .title h1 {
+    margin: 0; }
+
+.nametile {
+  border-color: green;
+  height: 100%;
+  width: 100%; }
+
+.scroller .row {
+  background: #768500;
+  margin: 0 0 20px;
+  overflow: hidden; }
+  .scroller .row h2 {
+    font-weight: bold; }
+  .scroller .row .tile {
+    box-shadow: 7px 7px 32px -2px rgba(0, 0, 0, 0.49);
+    text-align: center;
+    padding-bottom: 5px;
+    font-size: 23px;
+    width: 200px;
+    height: 200px;
+    min-height: 200px;
+    background-color: #bed501;
+    color: black;
+    float: left;
+    margin: 10px;
+    overflow: hidden; }
+    .scroller .row .tile:hover {
+      overflow: visible;
+      height: auto; }
 
 .scroller ul li {
   padding: 0;
@@ -26,14 +67,15 @@ body {
   bottom: 48px;
   left: 0;
   width: 100%;
-  background: #ccc; }
+  background: #ccc;
+  margin: 10px; }
   #wrapper #scroller {
     position: relative;
     z-index: 1;
     -webkit-tap-highlight-color: transparent;
     width: 5000px;
     height: 100%;
-    background-color: #a00;
+    background-color: #000000;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
     -webkit-touch-callout: none;
@@ -53,10 +95,9 @@ body {
       text-align: center; }
       #wrapper #scroller ul li {
         display: block;
-        float: left;
-        width: 100px;
         height: 100%;
         border-right: 1px solid #ccc;
-        font-size: 14px; }
+        font-size: 14px;
+        text-align: left; }
 
 /*# sourceMappingURL=app.css.map */

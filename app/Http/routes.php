@@ -17,5 +17,5 @@
 
 
 Route::get('/' , 'DisplayController@display');
-
+Route::get('/test', 'Controller@buildArray');
 Route::get('/update' , 'UpdateController@cacheIn');

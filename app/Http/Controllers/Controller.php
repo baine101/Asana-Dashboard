@@ -68,8 +68,11 @@ class Controller extends BaseController
 
         //convert tasks object to string
         $tasks = json_decode(json_encode($tasks), true);
-        
-        return $tasks;
+
+        $tasks2 = array_slice($tasks['data'] ,0 ,10);
+
+
+        return $tasks2;
         //close tasks function
     }
 
@@ -77,6 +80,7 @@ class Controller extends BaseController
     public function buildArray(){
 
         $masterArray = array();
+
 
         //return the workspace array
         $workspace = $this->workspace();
@@ -121,9 +125,10 @@ class Controller extends BaseController
 
                         foreach ($tasks as $taskWrapperKey => $taskWrapper) {
 
-                            foreach ($taskWrapper as $taskKey => $taskData) {
 
-                                if (!array_key_exists('name', $taskData) && !isset($taskData['name'])) {
+
+                                if (!array_key_exists('name', $taskWrapper) && !isset($taskWrapper['name'])) {
+
 
                                     echo "nope task ";
                                     //close if taskData
@@ -131,11 +136,11 @@ class Controller extends BaseController
                                 } else {
                                     
                                      //set third array elements to be tasks
-                                    $masterArray[$wsKey]['users'][$userKey]['tasks'][] = $taskData;
+                                    $masterArray[$wsKey]['users'][$userKey]['tasks'][] = $taskWrapper;
+
 
                                 }
 
-                            }
                         //close foreach task array
                         }
                     //close foreach userNameArray
