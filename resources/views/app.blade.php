@@ -12,6 +12,8 @@
     <script type="text/javascript" src="{{ asset('iscroll-master/build/iscroll.js') }}"></script>
 
     <script type="text/javascript" src="{{ asset('iscroll-master/build/myscroll.js') }}"></script>
+    <!-- Aasana js -->
+    <script src="https://github.com/Asana/node-asana/releases/download/<LATEST_RELEASE>/asana-min.js"></script>
 
 </head>
 

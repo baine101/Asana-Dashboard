@@ -1,78 +1,102 @@
 @extends('app')
 
 @section('content')
-    <div class="row">
-        <div class="head logo">
-            <div class="col-lg-2">
-                <img class="imghead1" src="{{ URL::asset('images/asana-dash.png') }}">
-            </div>
 
 
-        @foreach($value as $masterKey => $workspace)
+    @foreach($value as $masterKey => $workspace)
 
-            <div class="col-lg-6">
-                <div class="title text-center">
-                    <h1>Asana Dashboard | {{ $workspace['name'] }} </h1>
+        <div class="row">
+            <div class="head logo">
+                <div class="col-lg-2">
+                    <img class="imghead1" src="{{ URL::asset('images/asana-dash.png') }}">
+                </div>
+                <div class="col-lg-4 imghead2">
+                    <img class="imghead2" src="{{ URL::asset('images/logo.png') }}">
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="title text-center">
+                            <h1>Asana Dashboard | {{ $workspace['name'] }} </h1>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <img class="imghead2" src="{{ URL::asset('images/logo.png') }}">
-            </div>
         </div>
-    </div>
 
-        @if(!array_key_exists('users', $workspace) && !isset($workspace['users']))
+        @if(!array_key_exists('users', $workspace) or !isset($workspace['users']))
 
         @else
 
-            <div id="wrapper">
-                <div id="scroller" class="scroller">
-
+            <div class=content">
+                <div class="row">
                     <!-- users -->
                     @foreach($workspace['users'] as $userIndex => $users)
 
-                        <div class="row">
-                            <div class="col-lg-4">
 
 
-                            @if(!array_key_exists('name', $users) && !isset($users['name']) && !isset($users['tasks']['name']))
-
-                            @endif
 
 
-                            <div class="nametile">
+                        @if(!array_key_exists('name', $users) or !isset($users['name']) or !isset($users['tasks']['name']))
 
-                                <h2>{{ $users['name'] }}</h2>
-                                <ul>
-                                @if(!array_key_exists('tasks', $users) && !isset($users['tasks']))
-                            @else
+                        @endif
+
+                        <div class="col-lg-3">
+
+                            <div class="flip-container " ontouchstart="this.classList.toggle('hover');">
+                                <div class="flipper">
 
 
-                                        <?php $count = 1; ?>
-                                    @foreach($users['tasks'] as $taskKey => $task)
-                                        @if(!array_key_exists('name', $task) && !isset($task['name']))
+                                    <div class="front">
 
+
+                                        @if(!array_key_exists('tasks', $users) or !isset($users['tasks']))
 
                                         @else
 
-                                                <li>
-                                                    <div class="tile"> {{ $task['name'] }} </div>
-                                                </li>
+                                                <!-- front content -->
+                                        <h2>{{ $users['name'] }}</h2>
 
-                                        @endif
-
-                                    @endforeach
-                                </ul></div></div></div>
-                        @endif
+                                        @foreach($users['tasks'] as $taskKey => $task)
 
 
-                @endforeach
 
+                                            @if(!array_key_exists('name', $task) or !isset($task['name']))
+
+
+                                            @else
+
+
+                                                <div class="task"> {{ $task['name'] }} </div>
+
+                                            @endif
+
+                                        @endforeach
+
+                                    </div>
+
+
+                                    <div class="back">
+                                        <h2>ello their</h2>
+
+                                    </div>
+
+
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+
+                </div>
             </div>
-            </div><br>
+
 
         @endif
 
+
     @endforeach
+
 
 @endsection

@@ -11,11 +11,7 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-
-
 Route::get('/' , 'DisplayController@display');
-Route::get('/test', 'Controller@buildArray');
+
 Route::get('/update' , 'UpdateController@cacheIn');
+Route::get('/test', 'Controller@buildArray');

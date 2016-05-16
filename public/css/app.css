@@ -14,7 +14,8 @@ body {
     padding: 30px; }
 
 .head {
-  height: 50px; }
+  height: 50px;
+  padding: 30px; }
   .head .imghead1 {
     padding-left: 45px;
     display: block;
@@ -23,81 +24,53 @@ body {
     height: 70%;
     width: 70%; }
   .head .imghead2 {
-    float: right; }
+    float: right;
+    margin-bottom: 15px; }
   .head .title h1 {
     margin: 0; }
 
-.nametile {
-  border-color: green;
-  height: 100%;
-  width: 100%; }
+/* entire container, keeps perspective */
+.flip-container {
+  -webkit-perspective: 1000;
+  perspective: 1000; }
 
-.scroller .row {
-  background: #768500;
-  margin: 0 0 20px;
-  overflow: hidden; }
-  .scroller .row h2 {
-    font-weight: bold; }
-  .scroller .row .tile {
-    box-shadow: 7px 7px 32px -2px rgba(0, 0, 0, 0.49);
-    text-align: center;
-    padding-bottom: 5px;
-    font-size: 23px;
-    width: 200px;
-    height: 200px;
-    min-height: 200px;
-    background-color: #bed501;
-    color: black;
-    float: left;
-    margin: 10px;
-    overflow: hidden; }
-    .scroller .row .tile:hover {
-      overflow: visible;
-      height: auto; }
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg); }
 
-.scroller ul li {
-  padding: 0;
-  margin: 0;
-  border: 0; }
-
-#wrapper {
-  position: relative;
-  z-index: 1;
-  top: 45px;
-  bottom: 48px;
-  left: 0;
-  width: 100%;
-  background: #ccc;
-  margin: 10px; }
-  #wrapper #scroller {
+.flip-container, .front, .back {
+  width: 320px;
+  height: 250px;
+  text-align: center;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  /* flip speed goes here */ }
+  .flip-container .flipper, .front .flipper, .back .flipper {
+    -webkit-transition: 5.0s;
+    transition: 5.0s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
     position: relative;
-    z-index: 1;
-    -webkit-tap-highlight-color: transparent;
-    width: 5000px;
-    height: 100%;
-    background-color: #000000;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-text-size-adjust: none;
-    -o-text-size-adjust: none;
-    text-size-adjust: none; }
-    #wrapper #scroller ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      text-align: center; }
-      #wrapper #scroller ul li {
-        display: block;
-        height: 100%;
-        border-right: 1px solid #ccc;
-        font-size: 14px;
-        text-align: left; }
+    /* hide back of pane during swap */
+    /* front pane, placed above back */
+    /* back, initially hidden pane */ }
+    .flip-container .flipper .front, .flip-container .flipper .back, .front .flipper .front, .front .flipper .back, .back .flipper .front, .back .flipper .back {
+      background: whitesmoke;
+      color: black;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0; }
+    .flip-container .flipper .front, .front .flipper .front, .back .flipper .front {
+      z-index: 2;
+      /* for firefox 31 */
+      -webkit-transform: rotateY(0deg);
+      transform: rotateY(0deg); }
+    .flip-container .flipper .back, .front .flipper .back, .back .flipper .back {
+      background: whitesmoke;
+      -webkit-transform: rotateY(180deg);
+      transform: rotateY(180deg); }
 
 /*# sourceMappingURL=app.css.map */

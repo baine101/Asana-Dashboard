@@ -69,12 +69,13 @@ class Controller extends BaseController
         //convert tasks object to string
         $tasks = json_decode(json_encode($tasks), true);
 
-        $tasks2 = array_slice($tasks['data'] ,0 ,10);
+        $tasks2 = array_slice($tasks['data'] ,0 ,6);
 
 
         return $tasks2;
         //close tasks function
     }
+
 
 
     public function buildArray(){
@@ -147,7 +148,9 @@ class Controller extends BaseController
                     }
         //close foreach workspace id
         }
-        
+
+        //dd($taskWrapper,$userData,$wsData);
+
         $masterArray = json_decode(json_encode($masterArray),true);
 
         return $masterArray;
