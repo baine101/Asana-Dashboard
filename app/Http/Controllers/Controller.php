@@ -96,6 +96,7 @@ class Controller extends BaseController
             $wsId = $wsData['id'];
 
             if (array_key_exists('name', $wsData) && !isset($wsData['name'])) {
+
                 echo "nope workspace";
 
             } else {
@@ -137,7 +138,7 @@ class Controller extends BaseController
                     if (!array_key_exists('id', $taskWrapper) or !isset($taskWrapper['name'])) {
 
 
-                        $masterArray[$wsKey]['active'] = false;
+                      //  $masterArray[$wsKey]['active'] = false;
 
                         echo "nope task ";
                         //close if taskData
@@ -170,9 +171,6 @@ class Controller extends BaseController
                             $masterArray[$wsKey]['totalTasks'] = $totalTasks;
 
                             //dd($masterArray);
-
-                        
-
 
                     }
 
