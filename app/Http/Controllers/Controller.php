@@ -20,6 +20,7 @@ class Controller extends BaseController
     public $config;
     public $asana;
 
+
     public function __construct()
     {
 
@@ -63,7 +64,6 @@ class Controller extends BaseController
 
     public function tasks($workspace, $userNameId)
     {
-
         //call get workspace tasks (workspace id , usernameId)
 
         $tasks = $this->asana->getWorkspaceTasks($workspace, $userNameId);
@@ -104,8 +104,6 @@ class Controller extends BaseController
 
                 $masterArray[$wsKey] = $wsData;
 
-                $masterArray[$wsKey]['active'] = $wsActive;
-
             }
             //call users function
             $users = $this->users($wsId);
@@ -120,15 +118,14 @@ class Controller extends BaseController
 
                 if (!array_key_exists('name', $userData) or !isset($userData['name'])) {
 
-                    echo "nope user ";
+                    $masterArray[$wsKey]['active'] = false;
+
                 } else {
 
-                    $true = true;
-
-                    //set second array elements to be users
-
+                    //add second array elements to workspace witch is  users
                     $masterArray[$wsKey]['users'][$userKey] = $userData;
-                    //$masterArray[$wsKey]['active'] = $true;
+
+
                 }
 
                 //call tasks function
@@ -154,46 +151,46 @@ class Controller extends BaseController
 
                         }
 
-                        //set third array elements to be tasks
-                        $masterArray[$wsKey]['active'] = true;
+                            $totalTasks++;
 
-                        $totalTasks ++;
-                        $masterArray[$wsKey]['users'][$userKey]['tasks'][] = $taskWrapper;
+                            //set third array elements to be tasks
+                            $masterArray[$wsKey]['active'] = true;
 
+
+                            $userTaskCount = count($tasks);
+
+                            //percent calculation
+                            $percent = $totalTasks / $userTaskCount;
+
+
+                            //add task array to master array
+                            $masterArray[$wsKey]['users'][$userKey]['tasks'][] = $taskWrapper;
+                            $masterArray[$wsKey]['users'][$userKey]['percent'] = $percent;
+
+                            $masterArray[$wsKey]['totalTasks'] = $totalTasks;
+
+                            //dd($masterArray);
+
+                        
 
 
                     }
-                    //close foreach task array
+
 
                 }
 
-              /*
-                foreach($masterArray as $masterKey => $masterData) {
-
-                    $users = $masterArray[$masterKey]['users'];
-
-                    foreach ($users as $userKey => $userData) {
-
-
-                      $tasks = $userData['tasks'];
-                        //dd($tasks);
-                        $taskCount = count($tasks);
-
-                        $totalTasks = $totalTasks + $taskCount;
-
-                    }
-                }
-                */
-
-            //close foreach userNameArray
             }
-        //close foreach workspace id
-        }
+            $masterArray[$wsKey]['active'] = $wsActive;
 
+        }
+        dd($masterArray);
 
         $masterArray = json_decode(json_encode($masterArray), true);
 
-        dd($totalTasks);
+
+
+
+
 
         return $masterArray;
     //close function buildArray
