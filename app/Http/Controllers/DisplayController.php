@@ -12,21 +12,23 @@ class DisplayController extends UpdateController
 
         if(Cache::has('asanaData')){
 
-            //get the value in cache
+            //get the master value from cache
             $value = Cache::get('asanaData');
 
-            return view('welcome', compact("value"));
+            UpdateController::cacheIn();
 
-            //save array in cache
+            return view('welcome', compact("value" , "taskData"));
+
+
             //return cache
         }else{
 
             //store something in the cache
             UpdateController::cacheIn();
-            $value = Cache::cacheIn();
 
+            $value = Cache::get('asanaData');
 
-            return view('welcome', compact("value"));
+            return view('welcome', compact("value" , "taskChecker"));
         }
 
 
