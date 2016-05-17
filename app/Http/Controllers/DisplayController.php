@@ -17,7 +17,7 @@ class DisplayController extends UpdateController
 
             UpdateController::cacheIn();
 
-            return view('welcome', compact("value" , "taskData"));
+            return view('welcome', compact("value"));
 
 
             //return cache
@@ -28,7 +28,7 @@ class DisplayController extends UpdateController
 
             $value = Cache::get('asanaData');
 
-            return view('welcome', compact("value" , "taskChecker"));
+            return view('welcome', compact("value"));
         }
 
 
