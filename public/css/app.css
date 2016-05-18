@@ -35,7 +35,11 @@ body {
   perspective: 1000; }
 
 /* flip the pane when hovered */
-.flip-container:hover .flipper, .flip-container.hover .flipper {
+.flip-container:hover .flipper {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg); }
+
+.flip-container .flip {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg); }
 
@@ -68,6 +72,9 @@ body {
       /* for firefox 31 */
       -webkit-transform: rotateY(0deg);
       transform: rotateY(0deg); }
+      .flip-container .flipper .front .task, .front .flipper .front .task, .back .flipper .front .task {
+        background: #3FB8AF;
+        margin: 5px; }
     .flip-container .flipper .back, .front .flipper .back, .back .flipper .back {
       background: whitesmoke;
       -webkit-transform: rotateY(180deg);
