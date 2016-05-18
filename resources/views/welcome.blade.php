@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="title text-center">
-                                <h1>Asana Dashboard | {{ $workspace['name'] }} </h1>
+                                <h1>Asana Dashboard | {{ $workspace['name'] }} | {{$workspace['totalTasks']}} </h1>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
 
                         <div class="col-lg-3">
 
-                            <div class="flip-container " ontouchstart="this.classList.toggle('hover');">
+                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
                                 <div class="flipper">
 
 
@@ -67,7 +67,7 @@
 
 
                                     <div class="back">
-                                        <h2>ello their</h2>
+                                        <h2>{{ $users['name'] }}</h2>
                                         <h2>{{ $users['percent'] }}%</h2>
                                         <h2>{{ $users['taskCount'] }}</h2>
 
@@ -82,13 +82,6 @@
                     @endforeach
                 @endif
             </div>
-
-
-
-
-
-
-
 
         @endif
     @endforeach
