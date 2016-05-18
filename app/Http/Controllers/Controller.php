@@ -69,7 +69,7 @@ class Controller extends BaseController
 
         //call get workspace tasks (workspace id , usernameId)
 
-        $tasks = $this->asana->getWorkspaceTasks($workspace, $userNameId);
+        $tasks = $this->asana->getWorkspaceTasks($workspace, $userNameId ,'completed');
 
         //convert tasks object to string
         $tasks = json_decode(json_encode($tasks), true);
@@ -80,6 +80,43 @@ class Controller extends BaseController
         return $tasks;
         //close tasks function
     }
+/**
+    public function completedTasks()
+    {
+
+            $workspace = $this->workspace();
+            $workspaceId = null;
+        foreach($workspace as $wsWrapperKey => $wsWrapper) {
+
+            foreach($wsWrapper as $wsKey => $wsData){
+
+                $workspaceId = $wsData['id'];
+                $userWrapper = $this->users($workspaceId);
+
+                foreach($userWrapper as $userKey => $userData)
+                {
+                    foreach($userData as $userItemKey => $userItem) {
+
+                        global $userId;
+
+
+                        $userId = $userItem['id'];
+
+
+                    }
+                }
+
+            }
+        }
+
+        $compTasks = $this->asana->getCompletedWorkspaceTasks($workspace, $userId);
+        dd($compTasks);
+
+        return $compTasks;
+
+    }
+*/
+
 
     public function limitTasks($tasks){
 
@@ -124,6 +161,9 @@ class Controller extends BaseController
 
     public function buildArray()
     {
+       // $this->completedTasks();
+
+
         $wsActive = false;
         $wsKey = "";
         $masterArray = array();
@@ -245,6 +285,7 @@ class Controller extends BaseController
         $masterArray2 = $this->percent($masterArray);
 
         $masterArray2 = json_decode(json_encode($masterArray2), true);
+
 
 
         return $masterArray2;

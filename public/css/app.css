@@ -2,14 +2,23 @@
 @import url("https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js");
 @import url("http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js");
 html {
-  -ms-touch-action: none; }
+  -ms-touch-action: none;
+  overflow: scroll;
+  overflow-x: hidden; }
+  html ::-webkit-scrollbar {
+    width: 0px;
+    /* remove scrollbar space */
+    background: transparent;
+    /* optional: just make scrollbar invisible */ }
 
 body {
   background: black;
   color: whitesmoke;
   font-size: 12px;
   font-family: ubuntu, helvetica, arial;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  padding-left: 50px;
+  padding-right: 50px; }
   body .logo {
     padding: 30px; }
 
@@ -35,11 +44,7 @@ body {
   perspective: 1000; }
 
 /* flip the pane when hovered */
-.flip-container:hover .flipper {
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg); }
-
-.flip-container .flip {
+.flip-container .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg); }
 
@@ -51,8 +56,8 @@ body {
   border-radius: 5px;
   /* flip speed goes here */ }
   .flip-container .flipper, .front .flipper, .back .flipper {
-    -webkit-transition: 5.0s;
-    transition: 5.0s;
+    -webkit-transition: 2.0s;
+    transition: 2.0s;
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     position: relative;
@@ -66,7 +71,8 @@ body {
       backface-visibility: hidden;
       position: absolute;
       top: 0;
-      left: 0; }
+      left: 0;
+      margin: 5px; }
     .flip-container .flipper .front, .front .flipper .front, .back .flipper .front {
       z-index: 2;
       /* for firefox 31 */
@@ -74,7 +80,8 @@ body {
       transform: rotateY(0deg); }
       .flip-container .flipper .front .task, .front .flipper .front .task, .back .flipper .front .task {
         background: #3FB8AF;
-        margin: 5px; }
+        margin: 5px;
+        text-align: left; }
     .flip-container .flipper .back, .front .flipper .back, .back .flipper .back {
       background: whitesmoke;
       -webkit-transform: rotateY(180deg);

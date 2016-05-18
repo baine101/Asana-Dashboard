@@ -4,14 +4,21 @@
 
 html {
   -ms-touch-action: none;
+  overflow: scroll;
+  overflow-x: hidden;
+  ::-webkit-scrollbar {
+    width: 0px; /* remove scrollbar space */
+    background: transparent; /* optional: just make scrollbar invisible */
+  }
 }
-
 body {
   background: black;
   color: whitesmoke;
   font-size: 12px;
   font-family: ubuntu, helvetica, arial;
   overflow-x: hidden;
+  padding-left: 50px;
+  padding-right: 50px;
   .logo {
     padding: 30px;
   }
@@ -50,21 +57,15 @@ body {
   }
 
   /* flip the pane when hovered */
-  .flip-container:hover .flipper, .flip-container.hover .flipper ,.flip-container.flip {
+  .flip-container .flipper, .flip-container .flipper ,.flip-container.flip {
 
   }
 
-  .flip-container{
-    &:hover{
-      .flipper{
-        transform: rotateY(180deg);
-      }
-    }
-    .flip{
-      transform: rotateY(180deg);
-    }
 
-  }
+.flip-container .flipper, .flip-container.hover .flipper, .flip-container.flip .flipper {
+  transform: rotateY(180deg);
+}
+
 
 
   .flip-container, .front, .back {
@@ -75,7 +76,7 @@ body {
     border-radius: 5px;
     /* flip speed goes here */
     .flipper {
-      transition: 5.0s;
+      transition: 2.0s;
       transform-style: preserve-3d;
       position: relative;
 
@@ -87,6 +88,7 @@ body {
         position: absolute;
         top: 0;
         left: 0;
+        margin: 5px;
       }
 
       /* front pane, placed above back */
@@ -95,6 +97,7 @@ body {
         .task{
         background: #3FB8AF;
         margin: 5px;
+        text-align: left;
       }
         /* for firefox 31 */
         transform: rotateY(0deg);

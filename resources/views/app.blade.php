@@ -12,16 +12,15 @@
     <script type="text/javascript" src="{{ asset('iscroll-master/build/iscroll.js') }}"></script>
 
     <script type="text/javascript" src="{{ asset('iscroll-master/build/myscroll.js') }}"></script>
-    <!-- Aasana js
-    <script src="https://github.com/Asana/node-asana/releases/download/<LATEST_RELEASE>/asana-min.js"></script> -->
-
-    <!--flipTimer.js-->
-    <script type="text/javascript" src="{{asset('js/flipTimer.js')}}"></script>
-
-</head>div class="container">
+    <!-- Aasana js -->
+    <script src="https://github.com/Asana/node-asana/releases/download/<LATEST_RELEASE>/asana-min.js"></script>
 
 
-<body>
+
+</head>
+
+
+<body onload="setInterval(timer, 5000);">
 
 
     @yield('content')
@@ -31,5 +30,31 @@
 @yield('footer')
 
 </body>
-/div>
+
+<!--flipTimer.js  type="text/javascript" src="{ {asset('js/flipTimer.js')}}"-->
+
+<script>
+
+    function timer(){
+       // var count;
+       // window.setInterval(flip,1000);
+        //count++;
+
+       // return count;
+    }
+
+    function flip()
+    {
+        //document.querySelector("#myCard").classList.toggle("flipper")
+
+       // ("flipper").toggleclass("flip");
+  //      window.setInterval(timer,60000);
+
+
+        alert("hello");
+    }
+
+
+</script>
+
 </html>
