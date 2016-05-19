@@ -69,7 +69,7 @@ class Controller extends BaseController
 
         //call get workspace tasks (workspace id , usernameId)
 
-        $tasks = $this->asana->getWorkspaceTasks($workspace, $userNameId ,'completed');
+        $tasks = $this->asana->getWorkspaceTasks($workspace, $userNameId);
 
         //convert tasks object to string
         $tasks = json_decode(json_encode($tasks), true);
@@ -77,45 +77,25 @@ class Controller extends BaseController
         $this->totalTasks += count($tasks['data']);
 
 
+
         return $tasks;
         //close tasks function
     }
-/**
-    public function completedTasks()
-    {
 
-            $workspace = $this->workspace();
-            $workspaceId = null;
-        foreach($workspace as $wsWrapperKey => $wsWrapper) {
-
-            foreach($wsWrapper as $wsKey => $wsData){
-
-                $workspaceId = $wsData['id'];
-                $userWrapper = $this->users($workspaceId);
-
-                foreach($userWrapper as $userKey => $userData)
-                {
-                    foreach($userData as $userItemKey => $userItem) {
-
-                        global $userId;
+    public function compTasks($workspaceId , $usernameId){
 
 
-                        $userId = $userItem['id'];
 
 
-                    }
-                }
+       $compTasks =  $this->asana->getCompletedWorkspaceTasks($workspaceId, $usernameId);
 
-            }
-        }
+        //convert tasks object to string
+        $compTasks = json_decode(json_encode($compTasks), true);
 
-        $compTasks = $this->asana->getCompletedWorkspaceTasks($workspace, $userId);
-        dd($compTasks);
 
-        return $compTasks;
 
+    return $compTasks;
     }
-*/
 
 
     public function limitTasks($tasks){
@@ -157,17 +137,14 @@ class Controller extends BaseController
         return $masterArray;
     }
 
-
-
     public function buildArray()
     {
-       // $this->completedTasks();
 
 
         $wsActive = false;
         $wsKey = "";
         $masterArray = array();
-        $totalTasks = 0;
+
 
 
         //return the workspace array
@@ -176,21 +153,20 @@ class Controller extends BaseController
 
         foreach ($workspace as $wsKey => $wsData) {
 
-            $userTaskCount = 0;
             $wsId = $wsData['id'];
             $taskKey = null;
             $userKey = null;
 
             if (!array_key_exists('name', $wsData) or !isset($wsData['name'])) {
 
-                $masterArray[$wsKey] = 'false';
+                $masterArray[$wsKey] = true;
 
-            }else {
+            } else {
                 //set first array elements to be workspaces
                 $masterArray[$wsKey] = 'true';
 
                 $masterArray[$wsKey] = $wsData;
-                $masterArray[$wsKey]['active'] = 'true';
+                $masterArray[$wsKey]['active'] = false;
             }
 
             //call users function
@@ -204,40 +180,44 @@ class Controller extends BaseController
                 $userId = $userData['id'];
 
 
-            $userTaskCount = 0;
+                $userTaskCount = 0;
 
                 if (!array_key_exists('name', $userData) or !isset($userData['name'])) {
 
-                    $masterArray[$wsKey]['active'] = false;
 
+                    $masterArray[$wsKey]['active'] = true;
                 }else {
 
-                    $masterArray[$wsKey]['active'] = 'true';
-
-                    //add second array elements to workspace witch is users
-                    $masterArray[$wsKey]['users'][$userKey] = $userData;
-
+                    $masterArray[$wsKey]['active'] = false;
                 }
+
+                //add second array elements to workspace witch is users
+                $masterArray[$wsKey]['users'][$userKey]['id'] = $userId;
+                $masterArray[$wsKey]['users'][$userKey]['name'] = $userData['name'];
+                   // dd($masterArray[$wsKey]);
 
 
                 //call tasks function
                 $tasks = $this::tasks($wsId, $userId);
 
-
-
                 foreach ($tasks as $taskWrapperKey => $taskWrapper) {
 
 
+                    foreach ($taskWrapper as $taskKey => $taskData) {
 
-                    foreach($taskWrapper as $taskKey => $taskData) {
 
-
-                        if (!array_key_exists('name', $taskData) or !isset($taskData['name'])){
+                        if (!array_key_exists('name', $taskData) or !isset($taskData['name'])) {
 
                         } else {
-                            $userTaskCount = count($taskWrapper);
+
+                            if ($taskData['completed'] == false) {
+
+                                $userTaskCount++;
+
+                            } else {
 
 
+                            }
                         }
 
                         $taskLimit = $this::limitTasks($tasks);
@@ -246,47 +226,41 @@ class Controller extends BaseController
                         $taskLimit = json_decode(json_encode($taskLimit), true);
 
 
+                        if (!array_key_exists('name', $taskWrapper) or !isset($taskWrapper['name'])) {
+
+                            $masterArray[$wsKey]['active'] = true;
+
+                        } else {
+
+                            $masterArray[$wsKey]['active'] = false;
+
+                        }
+                            //add task array to master array
+                            $masterArray[$wsKey]['users'][$userKey]['tasks'] = $taskLimit;
+                            $masterArray[$wsKey]['users'][$userKey]['taskCount'] = $userTaskCount;
 
 
-                         if (array_key_exists('name', $taskWrapper) or isset($taskWrapper['name'])) {
 
-                            $masterArray[$wsKey]['active'] = 'false';
-
-                         }else {
-                            $masterArray[$wsKey]['active'] = 'true';
+                            if (!array_key_exists('users', $wsData) or !isset($wsData['users'])) {
 
 
-                             //add task array to master array
-                             $masterArray[$wsKey]['users'][$userKey]['tasks'] = $taskLimit;
-                             $masterArray[$wsKey]['users'][$userKey]['taskCount'] = $userTaskCount;
+                                $masterArray[$wsKey]['totalTasks'] = $this->totalTasks;
 
 
 
-                             if (!array_key_exists('users', $wsData) or !isset($wsData['users'])) {
-
-                                 $masterArray[$wsKey]['totalTasks'] = $this->totalTasks;
-
-
-                             }
-
-
-                         }
-
+                        }
                     }
 
                 }
 
             }
 
-            $masterArray[$wsKey]['active'] = $wsActive;
-
         }
-
         $masterArray2 = $this->percent($masterArray);
 
         $masterArray2 = json_decode(json_encode($masterArray2), true);
 
-
+        dd($masterArray2);
 
         return $masterArray2;
     //close function buildArray

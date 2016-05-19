@@ -12,7 +12,7 @@
 
             <div class="row">
                 <div class="head logo">
-                    <div class="col-lg-2">
+                    <div class="col-lg-1">
                         <img class="imghead1" src="{{ URL::asset('images/asana-dash.png') }}">
                     </div>
                     <div class="col-lg-4 imghead2">
@@ -40,7 +40,7 @@
 
                         <div class="col-lg-3">
 
-                            <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+                            <div class="flip-container">
                                 <div class="flipper">
 
 
@@ -73,6 +73,7 @@
                                         <h2>{{ $users['taskCount'] }}</h2>
 
                                     </div>
+
                                 </div>
                             </div>
                         </div>

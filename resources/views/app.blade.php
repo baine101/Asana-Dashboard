@@ -12,15 +12,16 @@
     <script type="text/javascript" src="{{ asset('iscroll-master/build/iscroll.js') }}"></script>
 
     <script type="text/javascript" src="{{ asset('iscroll-master/build/myscroll.js') }}"></script>
-    <!-- Aasana js -->
-    <script src="https://github.com/Asana/node-asana/releases/download/<LATEST_RELEASE>/asana-min.js"></script>
-
+    <!-- jquery -->
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
 
 
 </head>
 
 
-<body onload="setInterval(timer, 5000);">
+
+
+<body>
 
 
     @yield('content')
@@ -31,30 +32,17 @@
 
 </body>
 
-<!--flipTimer.js  type="text/javascript" src="{ {asset('js/flipTimer.js')}}"-->
-
+<!--flipTimer.js  type="text/javascript" src="{ {asset('js/flipTimer.js')}}" -->
 <script>
 
-    function timer(){
-       // var count;
-       // window.setInterval(flip,1000);
-        //count++;
 
-       // return count;
-    }
+    $(document).ready(function () {
 
-    function flip()
-    {
-        //document.querySelector("#myCard").classList.toggle("flipper")
+            setInterval(function(){
+                $(".flip-container").toggleClass("hover");
+            }, 4000);
 
-       // ("flipper").toggleclass("flip");
-  //      window.setInterval(timer,60000);
-
-
-        alert("hello");
-    }
-
-
+    });
 </script>
 
 </html>

@@ -16,7 +16,7 @@ class DisplayController extends UpdateController
             $value = Cache::get('asanaData');
 
             //for debug
-           // UpdateController::cacheIn();
+            UpdateController::cacheIn();
 
             return view('welcome', compact("value"));
 
