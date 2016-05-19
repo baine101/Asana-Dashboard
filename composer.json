@@ -15,8 +15,7 @@
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
 		"torann/laravel-asana": "*",
-		"panique/laravel-sass": "dev-master",
-        "bootstrap-sass-official": "~3.3.1"
+		"panique/laravel-sass": "dev-master"
 
     },
     "autoload": {
