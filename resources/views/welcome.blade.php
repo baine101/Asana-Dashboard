@@ -4,9 +4,10 @@
 
 
 
+
     @foreach($value as $masterKey => $workspace)
 
-        <?php /*  dd($workspace)  */ ?>
+
 
         @if(array_key_exists('totalTasks', $workspace) or isset($workspace['totalTasks']))
 
@@ -55,11 +56,13 @@
 
                                         @if(array_key_exists('tasks',$users) or isset($users['tasks']))
 
-                                            @foreach($users['tasks'] as $taskKey => $tasks)
+                                            @foreach($users['tasks']['data'] as $taskKey => $tasks)
 
 
-                                                <div class="task"> {{ $tasks['name'] }} </div>
 
+
+
+                                                    <div class="task"> {{ $tasks['name'] }} </div>
 
 
                                             @endforeach

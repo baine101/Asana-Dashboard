@@ -66,6 +66,15 @@ class Controller extends BaseController
         //close users function
     }
 
+    public function limitTasks($limTasks)
+    {
+
+        $limTasks = array_slice($limTasks, 0, 6);
+
+        return $limTasks;
+
+    }
+
     public function tasks($workspace, $userNameId)
     {
 
@@ -76,36 +85,42 @@ class Controller extends BaseController
         //convert tasks object to string
         $tasks = json_decode(json_encode($tasks), true);
 
+
+        foreach($tasks as $taskWrapKey => $taskWrapper) {
+
+
+            if(array_key_exists($taskWrapKey,$tasks)or isset($taskWrapper)){
+
+
+
+                foreach ($taskWrapper as $taskKey => $taskData) {
+
+
+                    if(array_key_exists($taskKey,$taskWrapper) or isset($taskData['id'])) {
+
+
+
+                        if($taskWrapper[$taskKey]['completed'] == true){
+
+                            unset($tasks['data'][$taskKey]);
+                        }
+
+                        $var = $tasks['data'];
+
+
+
+                    }
+                }
+            }
+        }
+
+
         $this->totalTasks += count($tasks['data']);
 
 
         return $tasks;
         //close tasks function
     }
-
-    public function limitTasks($limTasks)
-    {
-
-        $limTasks = array_slice($limTasks['data'], 0, 6);
-
-        return $limTasks;
-
-    }
-
-    /*   public function ifComp($masterArray,$taskKey){
-
-         //  dd($masterArray);
-
-           foreach($masterArray as $wrapperKey => $task){
-
-               if($subArray[$key] == $value){
-                   unset($array[$subKey]);
-               }
-           }
-           return $array;
-
-
-       }*/
 
     public function percent($masterArray)
     {
@@ -143,8 +158,8 @@ class Controller extends BaseController
     {
 
 
-        $wsActive = false;
         global $wsKey;
+        global $userKey;
         global $taskData;
         $masterArray = array();
 
@@ -195,7 +210,7 @@ class Controller extends BaseController
                 //add second array elements to workspace witch is users
                 $masterArray[$wsKey]['users'][$userKey]['id'] = $userId;
                 $masterArray[$wsKey]['users'][$userKey]['name'] = $userData['name'];
-                // dd($masterArray[$wsKey]);
+
 
 
                 //call tasks function
@@ -218,8 +233,6 @@ class Controller extends BaseController
                         }
 
 
-                        //     $this->ifComp($masterArray, $taskKey);
-
                         if (!array_key_exists('name', $taskWrapper) or !isset($taskWrapper['name'])) {
 
                             $masterArray[$wsKey]['active'] = true;
@@ -231,15 +244,7 @@ class Controller extends BaseController
                         }
 
 
-                        $taskLimit = $this::limitTasks($tasks);
-
-
-                        $taskLimit = json_decode(json_encode($taskLimit), true);
-
-
-
                         //add task array to master array
-                        $masterArray[$wsKey]['users'][$userKey]['tasks'] = $taskLimit;
                         $masterArray[$wsKey]['users'][$userKey]['taskCount'] = $userTaskCount;
 
 
@@ -248,22 +253,61 @@ class Controller extends BaseController
                             $masterArray[$wsKey]['totalTasks'] = $this->totalTasks;
 
 
+
+
+
+
                         }
 
+
                     }
+
+
                 }
 
             }
 
+
+
         }
-
-
-        dd($masterArray);
+        //dd($masterArray);
 
         $masterArray2 = $this->percent($masterArray);
 
+        //if  is set do this  :: or if user isnt set dont do this
+
+        foreach ($masterArray as $wsKey => $wsData) {
+
+            if (isset($wsData['users'])) {
+                //if user is set do this  :: or if user isnt set dont do this
+
+                foreach ($wsData['users'] as $userKey => $user) {
+
+                    if(isset($user)) {
+
+
+
+                         $taskArray = $user['tasks']['data'];
+
+                        //limit tasks to 6
+                        $taskLimit = $this::limitTasks($taskArray);
+
+                        $taskLimit = json_decode(json_encode($taskLimit), true);
+
+                        $masterArray[$wsKey]['users'][$userKey]['tasks']['data'] = $taskLimit;
+
+}
+                }
+
+
+            }
+        }
+
+
+
         $masterArray2 = json_decode(json_encode($masterArray2), true);
 
+        return $masterArray2;
 
     }
 //close controller class
