@@ -1,5 +1,5 @@
 # Asana Dashboard 
-![Asana-Dash](https://github.com/baine101/asana-dash/blob/master/asana-dash.png)
+![Asana-Dash](https://github.com/baine101/asana-dash/blob/master/asana.png)
 ![Laravel](https://github.com/baine101/asana-dash/blob/master/laravel.png)
 ![Asana](https://github.com/baine101/asana-dash/blob/master/asana.png)
 ## Description
