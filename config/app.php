@@ -155,9 +155,12 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        DraperStudio\ChartJS\ServiceProvider::class,
 
         //asana API wrapper
         Torann\LaravelAsana\ServiceProvider::class,
+        //javascript service provider
+        Laracasts\Utilities\JavaScript\JavaScriptServiceProvider::class,
 
     ],
 
@@ -205,6 +208,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Asana' => Torann\LaravelAsana\Facade::class,
+        'ChartJS' => DraperStudio\ChartJS\Facades\ChartJS::class,
     ],
 
 ];

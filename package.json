@@ -10,6 +10,7 @@
     "bootstrap-sass": "^3.0.0"
   },
   "dependencies": {
-    "asana": "^0.14.1"
+    "asana": "^0.14.1",
+    "chart.js": "^2.1.3"
   }
 }

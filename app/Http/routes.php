@@ -13,5 +13,8 @@
 
 Route::get('/' , 'DisplayController@display');
 
+
+Route::resource('chart-data', 'DisplayController');
+
 Route::get('/update' , 'UpdateController@cacheIn');
 Route::get('/test', 'DisplayController@display');

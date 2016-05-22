@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Response;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -104,9 +105,6 @@ class Controller extends BaseController
 
                             unset($tasks['data'][$taskKey]);
                         }
-
-                        $var = $tasks['data'];
-
 
 
                     }
@@ -246,15 +244,11 @@ class Controller extends BaseController
 
                         //add task array to master array
                         $masterArray[$wsKey]['users'][$userKey]['taskCount'] = $userTaskCount;
-
+                        $masterArray[$wsKey]['users'][$userKey]['tasks'] = $tasks;
 
                         if (!array_key_exists('users', $wsData) or !isset($wsData['users'])) {
 
                             $masterArray[$wsKey]['totalTasks'] = $this->totalTasks;
-
-
-
-
 
 
                         }
@@ -270,9 +264,9 @@ class Controller extends BaseController
 
 
         }
-        //dd($masterArray);
 
-        $masterArray2 = $this->percent($masterArray);
+
+        $masterArray = $this->percent($masterArray);
 
         //if  is set do this  :: or if user isnt set dont do this
 
@@ -283,9 +277,11 @@ class Controller extends BaseController
 
                 foreach ($wsData['users'] as $userKey => $user) {
 
-                    if(isset($user)) {
+
+                    if(isset($user['tasks'])) {
 
 
+                        //var_dump($user['tasks']['data']);
 
                          $taskArray = $user['tasks']['data'];
 
@@ -294,18 +290,17 @@ class Controller extends BaseController
 
                         $taskLimit = json_decode(json_encode($taskLimit), true);
 
-                        $masterArray[$wsKey]['users'][$userKey]['tasks']['data'] = $taskLimit;
+                        $masterArray[$wsKey]['users'][$userKey]['tasks'] = $taskLimit;
 
-}
+                    }
                 }
 
 
             }
         }
+      //dd($masterArray);
 
-
-
-        $masterArray2 = json_decode(json_encode($masterArray2), true);
+        $masterArray2 = json_decode(json_encode($masterArray), true);
 
         return $masterArray2;
 

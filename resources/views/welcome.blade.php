@@ -3,9 +3,44 @@
 @section('content')
 
 
+    <script type="text/javascript">
 
+        function percentChart() {
+            var name = $("#name").val();
+            console.log(name);
+            alert(name);
 
-    @foreach($value as $masterKey => $workspace)
+            var ctx = document.getElementById("percent").getContext("2d");
+            //var ctx = canvas.getContext("2d");
+
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: [
+                        name,
+                        "Green"
+                    ],
+                    datasets: [
+                        {
+                            data: [300, 50],
+                            backgroundColor: [
+                                "#FF6384",
+                                "#36A2EB"
+                            ],
+                            hoverBackgroundColor: [
+                                "#FF6384",
+                                "#FFCE56"
+                            ]
+                        }]
+                }
+            });
+
+            return this;
+        }
+
+    </script>
+
+    @foreach($masterArray as $masterKey => $workspace)
 
 
 
@@ -56,30 +91,42 @@
 
                                         @if(array_key_exists('tasks',$users) or isset($users['tasks']))
 
-                                            @foreach($users['tasks']['data'] as $taskKey => $tasks)
-
-
-
+                                            @foreach($users['tasks'] as $taskKey => $tasks)
 
 
                                                     <div class="task"> {{ $tasks['name'] }} </div>
 
 
                                             @endforeach
-                                        @endif
+
                                     </div>
 
 
                                     <div class="back">
-                                        <h2>{{ $users['name'] }}</h2>
-                                        <h2>{{ $users['percent'] }}%</h2>
-                                        <h2>{{ $users['taskCount'] }}</h2>
+
+
+                                        <h2 id="name">{{ $users['name'] }}</h2>
+                                        <p>{{ $users['percent'] }}%<br>
+                                        {{ $users['taskCount'] }}</p>
+                                        @if(isset($users['id']))
+
+                                        <canvas id="percent" width="10" height="10"></canvas>
+
+                                            <script type="text/javascript">
+                                                $(document).ready(percentChart());
+                                            </script>
+
+                                        @endif
+
+
+
 
                                     </div>
-
-                                </div>
+                                    @endif
                             </div>
                         </div>
+                    </div>
+
 
 
 

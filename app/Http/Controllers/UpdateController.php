@@ -16,10 +16,13 @@ class UpdateController extends Controller
 
             if(Cache::has('asanaData')){
 
+
+                echo"bunya";
                 //for debug
-                $masterArray = Controller::buildArray();
+                //$masterArray = Controller::buildArray();
 
             }else{
+
                 $masterArray = Controller::buildArray();
 
                 Cache::put('asanaData',$masterArray , 15);

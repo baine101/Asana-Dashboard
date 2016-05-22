@@ -29,14 +29,13 @@ body {
 .head {
   height: 50px;
   padding: 30px;
-
   .imghead1 {
-    padding-left: 45px;
     display: block;
     position: relative;
     float: left;
-    height: 100%;
-    width: 100%;
+    height: 125px;
+    width: 135px;
+
   }
   .imghead2 {
     float: right;
@@ -115,31 +114,43 @@ body {
       -ms-transform: rotateY(0deg);
       transform: rotateY(0deg);
       width: 320px;
-      height: 275px;
+      height: 285px;
       border: 2px solid #ccc;
-      border-radius: 5px;
-      background: lightgreen;
+      border-radius: 1px;
+      background: #ffffff;
       z-index: 2;
+      margin-bottom: 10px;
       .task {
-        background: #3FB8AF;
+        background: #BED501;
         margin: 5px;
-        height: 10%;
+        height: 11.37%;
+        min-height: 10%;
         text-align: left;
         overflow: hidden;
-
         font-weight: bold;
+        border: 1px solid #ccc;
+        border-radius: 1px;
       }
-      // for firefox 31
-      //transform: rotateY(0deg);
+      .task:hover{
+        background: #BED501;
+        margin: 5px;
+        height: 12.5%;
+        min-height: 10%;
+        text-align: left;
+        overflow: visible;
+        font-weight: bold;
+        border: 1px solid #ccc;
+        border-radius: 1px;
+      }
     }
 
     //back, initially hidden pane
     .back {
       width: 320px;
-      height: 275px;
-      border: 2px solid #ccc;
-      border-radius: 5px;
-      background: lightblue;
+      height: 285px;
+      border: 2px solid #dcdcdc;
+      border-radius: 1px;
+      background: #ffffff;
       -webkit-transform: rotateY(-180deg);
       -moz-transform: rotateY(-180deg);
       -o-transform: rotateY(-180deg);

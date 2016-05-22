@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c92ba02e864862342d7f3e663ffd1e39",
-    "content-hash": "19df7bb552927af7f6c124a3188b1bd5",
+    "hash": "cf806ed7552fb6b2b3f3f3c201b71f48",
+    "content-hash": "bd9876ad04ddb823c0b04fc14bad555e",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -162,6 +162,117 @@
             "time": "2015-11-06 14:35:42"
         },
         {
+            "name": "draperstudio/laravel-chartjs",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DraperStudio/Laravel-ChartJS.git",
+                "reference": "35356a177d2710e279ed54aecceaea3aca273796"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DraperStudio/Laravel-ChartJS/zipball/35356a177d2710e279ed54aecceaea3aca273796",
+                "reference": "35356a177d2710e279ed54aecceaea3aca273796",
+                "shasum": ""
+            },
+            "require": {
+                "draperstudio/laravel-service-provider": "^0.1",
+                "php": "^5.5.9 || ^7.0"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "^3.1",
+                "phpunit/phpunit": "^4.8 || ^5.0",
+                "scrutinizer/ocular": "~1.1",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DraperStudio\\ChartJS\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "DraperStudio",
+                    "email": "hello@draperstudio.tech",
+                    "homepage": "http://draperstudio.tech",
+                    "role": "Developer"
+                }
+            ],
+            "description": "ChartJS Integration with a Fluent Builder for Laravel 5",
+            "homepage": "https://github.com/DraperStudio/laravel-chartjs",
+            "keywords": [
+                "DraperStudio",
+                "laravel-chartjs"
+            ],
+            "time": "2016-03-07 11:39:13"
+        },
+        {
+            "name": "draperstudio/laravel-service-provider",
+            "version": "0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DraperStudio/Laravel-Service-Provider.git",
+                "reference": "013faa21ddc5ce56ca5559e42ded736291985454"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DraperStudio/Laravel-Service-Provider/zipball/013faa21ddc5ce56ca5559e42ded736291985454",
+                "reference": "013faa21ddc5ce56ca5559e42ded736291985454",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "5.1.* || 5.2.*",
+                "php": "^5.5.9 || ^7.0"
+            },
+            "require-dev": {
+                "graham-campbell/testbench": "^3.1",
+                "mockery/mockery": "^0.9.4",
+                "phpunit/phpunit": "^4.8 || ^5.0",
+                "scrutinizer/ocular": "~1.1",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DraperStudio\\ServiceProvider\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "DraperStudio",
+                    "email": "hello@draperstudio.tech",
+                    "homepage": "http://draperstudio.tech",
+                    "role": "Developer"
+                }
+            ],
+            "description": "DRY Service Provider for Laravel 5 Packages",
+            "homepage": "https://github.com/DraperStudio/laravel-service-provider",
+            "keywords": [
+                "DraperStudio",
+                "laravel-service-provider"
+            ],
+            "time": "2016-03-05 12:51:03"
+        },
+        {
             "name": "jakub-onderka/php-console-color",
             "version": "0.1",
             "source": {
@@ -305,6 +416,50 @@
                 "tokenizer"
             ],
             "time": "2015-12-05 17:17:57"
+        },
+        {
+            "name": "laracasts/utilities",
+            "version": "2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/PHP-Vars-To-Js-Transformer.git",
+                "reference": "4402a0ed774f8eb36ea7ba169341d9d5b6049378"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/PHP-Vars-To-Js-Transformer/zipball/4402a0ed774f8eb36ea7ba169341d9d5b6049378",
+                "reference": "4402a0ed774f8eb36ea7ba169341d9d5b6049378",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Laracasts\\Utilities\\JavaScript\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Transform your PHP to JavaScript",
+            "keywords": [
+                "javascript",
+                "laravel"
+            ],
+            "time": "2015-10-01 05:16:28"
         },
         {
             "name": "laravel/framework",
@@ -1729,6 +1884,55 @@
             "time": "2016-04-25 11:17:47"
         },
         {
+            "name": "torann/laravel-asana",
+            "version": "0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Torann/laravel-asana.git",
+                "reference": "6f6cffaa1cfa69f3e0c6445e9e03505f81e89772"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Torann/laravel-asana/zipball/6f6cffaa1cfa69f3e0c6445e9e03505f81e89772",
+                "reference": "6f6cffaa1cfa69f3e0c6445e9e03505f81e89772",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.0",
+                "illuminate/support": "~5.0",
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.3-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Torann\\LaravelAsana\\": "src/Torann/LaravelAsana"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD 2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Stainback",
+                    "email": "daniel@lyften.com"
+                }
+            ],
+            "description": "Asna API wrapper for Laravel",
+            "keywords": [
+                "Laravel 4",
+                "asana",
+                "laravel",
+                "laravel 5"
+            ],
+            "time": "2016-04-13 16:44:03"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v2.2.1",
             "source": {
@@ -3092,55 +3296,6 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2016-03-04 07:55:57"
-        },
-        {
-            "name": "torann/laravel-asana",
-            "version": "0.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Torann/laravel-asana.git",
-                "reference": "6f6cffaa1cfa69f3e0c6445e9e03505f81e89772"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Torann/laravel-asana/zipball/6f6cffaa1cfa69f3e0c6445e9e03505f81e89772",
-                "reference": "6f6cffaa1cfa69f3e0c6445e9e03505f81e89772",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "~5.0",
-                "illuminate/support": "~5.0",
-                "php": ">=5.5.9"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.3-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Torann\\LaravelAsana\\": "src/Torann/LaravelAsana"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD 2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Daniel Stainback",
-                    "email": "daniel@lyften.com"
-                }
-            ],
-            "description": "Asna API wrapper for Laravel",
-            "keywords": [
-                "Laravel 4",
-                "asana",
-                "laravel",
-                "laravel 5"
-            ],
-            "time": "2016-04-13 16:44:03"
         }
     ],
     "aliases": [],
