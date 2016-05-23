@@ -73,19 +73,25 @@
                                             <?php/* dd($users['id']);   <--- has value */?>
 
                                         <h2 id="name-{{$users['id']}}">{{$users['name']}}</h2>
-                                        <p>{{$users['percent']}}%<br>
+
+                                            <input type="hidden" id="{{$users['taskCount']}}" value="{{$users['taskCount']}}">
+                                            <input type="hidden" id="{{$workspace['totalTasks']}}" value="{{$workspace['totalTasks']}}">
+
+                                                <p>{{$users['percent']}}%<br>
                                             {{$users['taskCount']}}</p>
 
 
 
-                                            <canvas id="{{$users['id']}}" width="10" height="10"></canvas>
+                                            <canvas id="{{$users['id']}}" width="10%" height="10%"></canvas>
+
 
 
                                             <script type="text/javascript">
 
                                                     function percentChart() {
                                                         var id = $("#name-{!!$users['id']!!}").value;
-                                                        var name = $("#name-{!!$users['name']!!}").value;
+                                                        var totalTasks = $("{{$workspace['totalTasks']}}").value;
+                                                        var taskCount = $("{{$users['taskCount']}}").value;
                                                         console.log(id);
 
                                                         var ctx = document.getElementById("{{$users['id']}}").getContext("2d");
@@ -94,12 +100,15 @@
                                                             type: 'pie',
                                                             data: {
                                                                 labels: [
-                                                                    name,
-                                                                    "Green"
+                                                                    taskCount,
+                                                                    totalTasks
+                                                                    //"Total Tasks",
+                                                                    //"Users Tasks"
                                                                 ],
                                                                 datasets: [
                                                                     {
-                                                                        data: [300, 50],
+                                                                        //data: [totalTasks, taskCount],
+                                                                        data: [50, 25],
                                                                         backgroundColor: [
                                                                             "#FF6384",
                                                                             "#36A2EB"
