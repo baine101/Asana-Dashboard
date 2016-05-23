@@ -70,27 +70,25 @@
 
                                         @if(isset($users['id']))
 
-                                            <?php/* dd($users);*/?>
+                                            <?php/* dd($users['id']);   <--- has value */?>
 
-                                        <h2 id="name-{{  $users['id'] }}">{{ $users['name'] }}</h2>
-                                        <p>{{ $users['percent'] }}%<br>
-                                            {{ $users['taskCount'] }}</p>
+                                        <h2 id="name-{{$users['id']}}">{{$users['name']}}</h2>
+                                        <p>{{$users['percent']}}%<br>
+                                            {{$users['taskCount']}}</p>
 
 
-                                            n
-                                            <canvas id="{{  $users['id'] }}" width="10" height="10"></canvas>
+
+                                            <canvas id="{{$users['id']}}" width="10" height="10"></canvas>
 
 
                                             <script type="text/javascript">
 
                                                     function percentChart() {
-                                                        var name = $("#name-{{ $users['id']  }}").textContent;
+                                                        var id = $("#name-{!!$users['id']!!}").value;
+                                                        var name = $("#name-{!!$users['name']!!}").value;
+                                                        console.log(id);
 
-                                                        //alert(name.value);
-                                                        alert(name);
-                                                        console.log(name);
-
-                                                        var ctx = document.getElementById(" {{$users['id']}} ").getContext("2d");
+                                                        var ctx = document.getElementById("{{$users['id']}}").getContext("2d");
                                                         //var ctx = canvas.getContext("2d");
                                                         var myChart = new Chart(ctx, {
                                                             type: 'pie',
@@ -113,8 +111,8 @@
                                                                     }]
                                                             }
                                                         });
-                                                        return this;
-                                                    };
+                                                        //return this;
+                                                    }
                                             </script>
 
 

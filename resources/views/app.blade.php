@@ -23,14 +23,6 @@
     <!--<script type="text/javascript" src="{{ asset('chart/dist/Chart.bundle.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('chart/dist/Chart.min.js') }}"></script> -->
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            setInterval(function(){
-                $(".flip-container").toggleClass("hover");
-            }, 4000);
-        });
-    </script>
-
 
 
 
@@ -48,6 +40,14 @@
 </body>
 
 <!--flipTimer.js  type="text/javascript" src="{ {asset('js/flipTimer.js')}}" -->
+<script type="text/javascript">
+    $(document).ready(function(){
+        setInterval(function(){
+            $(".flip-container").toggleClass("hover");
+        }, 4000);
+    });
+</script>
+
 
 
 </html>
