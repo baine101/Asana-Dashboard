@@ -21,18 +21,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js"></script>
     <!--<script type="text/javascript" src="{{ asset('chart/dist/Chart.bundle.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('chart/dist/Chart.min.js') }}"></script>-->
+    <script type="text/javascript" src="{{ asset('chart/dist/Chart.min.js') }}"></script> -->
 
-    <script type="javascript">
-        $(document).ready(function () {
-
+    <script type="text/javascript">
+        $(document).ready(function(){
             setInterval(function(){
                 $(".flip-container").toggleClass("hover");
             }, 4000);
         });
-
-
     </script>
+
+
+
+
 
 
 </head>
@@ -47,9 +48,6 @@
 </body>
 
 <!--flipTimer.js  type="text/javascript" src="{ {asset('js/flipTimer.js')}}" -->
-
-
-
 
 
 </html>

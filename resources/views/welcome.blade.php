@@ -2,44 +2,6 @@
 
 @section('content')
 
-
-    <script type="text/javascript">
-
-        function percentChart() {
-            var name = $("#name").val();
-            console.log(name);
-            alert(name);
-
-            var ctx = document.getElementById("percent").getContext("2d");
-            //var ctx = canvas.getContext("2d");
-
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: [
-                        name,
-                        "Green"
-                    ],
-                    datasets: [
-                        {
-                            data: [300, 50],
-                            backgroundColor: [
-                                "#FF6384",
-                                "#36A2EB"
-                            ],
-                            hoverBackgroundColor: [
-                                "#FF6384",
-                                "#FFCE56"
-                            ]
-                        }]
-                }
-            });
-
-            return this;
-        }
-
-    </script>
-
     @foreach($masterArray as $masterKey => $workspace)
 
 
@@ -58,7 +20,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="title text-center">
-                                <h1>Asana Dashboard | {{ $workspace['name'] }} | {{$workspace['totalTasks']}} </h1>
+                                <p>Uncompleted Tasks {{$workspace['totalTasks']}} |</p>
                             </div>
                         </div>
                     </div>
@@ -73,6 +35,8 @@
                 @if(array_key_exists('users',$workspace) or isset($workspace['users']))
 
                     @foreach($workspace['users'] as $userIndex => $users)
+
+
 
                         <div class="col-lg-3">
 
@@ -94,7 +58,7 @@
                                             @foreach($users['tasks'] as $taskKey => $tasks)
 
 
-                                                    <div class="task"> {{ $tasks['name'] }} </div>
+                                                <div class="task"> {{ $tasks['name'] }} </div>
 
 
                                             @endforeach
@@ -104,16 +68,58 @@
 
                                     <div class="back">
 
-
-                                        <h2 id="name">{{ $users['name'] }}</h2>
-                                        <p>{{ $users['percent'] }}%<br>
-                                        {{ $users['taskCount'] }}</p>
                                         @if(isset($users['id']))
 
-                                        <canvas id="percent" width="10" height="10"></canvas>
+                                            <?php/* dd($users);*/?>
+
+                                        <h2 id="name-{{  $users['id'] }}">{{ $users['name'] }}</h2>
+                                        <p>{{ $users['percent'] }}%<br>
+                                            {{ $users['taskCount'] }}</p>
+
+
+                                            n
+                                            <canvas id="{{  $users['id'] }}" width="10" height="10"></canvas>
+
 
                                             <script type="text/javascript">
-                                                $(document).ready(percentChart());
+
+                                                    function percentChart() {
+                                                        var name = $("#name-{{ $users['id']  }}").textContent;
+
+                                                        //alert(name.value);
+                                                        alert(name);
+                                                        console.log(name);
+
+                                                        var ctx = document.getElementById(" {{$users['id']}} ").getContext("2d");
+                                                        //var ctx = canvas.getContext("2d");
+                                                        var myChart = new Chart(ctx, {
+                                                            type: 'pie',
+                                                            data: {
+                                                                labels: [
+                                                                    name,
+                                                                    "Green"
+                                                                ],
+                                                                datasets: [
+                                                                    {
+                                                                        data: [300, 50],
+                                                                        backgroundColor: [
+                                                                            "#FF6384",
+                                                                            "#36A2EB"
+                                                                        ],
+                                                                        hoverBackgroundColor: [
+                                                                            "#FF6384",
+                                                                            "#FFCE56"
+                                                                        ]
+                                                                    }]
+                                                            }
+                                                        });
+                                                        return this;
+                                                    };
+                                            </script>
+
+
+                                            <script type="text/javascript">
+                                                $(document).load(percentChart());
                                             </script>
 
                                         @endif
@@ -123,9 +129,9 @@
 
                                     </div>
                                     @endif
+                                </div>
                             </div>
                         </div>
-                    </div>
 
 
 

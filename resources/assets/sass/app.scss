@@ -27,8 +27,8 @@ body {
 }
 
 .head {
-  height: 50px;
-  padding: 30px;
+  height: 30%;
+  padding: 5%;
   .imghead1 {
     display: block;
     position: relative;
@@ -43,6 +43,7 @@ body {
   }
   .title {
     h1 {
+      font-size: 140px;
       margin: 0;
     }
   }
@@ -62,7 +63,7 @@ body {
     -ms-transform-style: preserve-3d;
     width: 320px;
     height: 275px;
-  color: black;
+  color: #ffffff;
   text-align: center;
   margin-bottom: 15px;
   border-radius: 5px;
@@ -81,6 +82,7 @@ body {
 
     // hide back of pane during swap //
     .front, .back {
+      color: #000000;
       -webkit-backface-visibility: hidden;
       -moz-backface-visibility: hidden;
       -ms-backface-visibility: hidden;
@@ -103,7 +105,6 @@ body {
       position: absolute;
       top: 0;
       left: 0;
-
     }
 
     //front pane, placed above back
@@ -121,7 +122,8 @@ body {
       z-index: 2;
       margin-bottom: 10px;
       .task {
-        background: #BED501;
+        color: #FFFFFF;
+        background: #000000;
         margin: 5px;
         height: 11.37%;
         min-height: 10%;
@@ -132,7 +134,8 @@ body {
         border-radius: 1px;
       }
       .task:hover{
-        background: #BED501;
+        color: #FFFFFF;
+        background: #000000;
         margin: 5px;
         height: 12.5%;
         min-height: 10%;
@@ -146,6 +149,7 @@ body {
 
     //back, initially hidden pane
     .back {
+      color: #000000;
       width: 320px;
       height: 285px;
       border: 2px solid #dcdcdc;
@@ -160,7 +164,6 @@ body {
     }
   }
   }
-
 
 .flip-container.hover {
 
