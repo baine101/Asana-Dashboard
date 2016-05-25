@@ -12,7 +12,9 @@
 
 /** RESET AND LAYOUT
 ===================================*/
-
+@media  {
+  
+}
 .bxslider {
   width: 415%;
   position: relative;
@@ -121,25 +123,6 @@
       background: #000;
     }
   }
-
-  .bx-prev {
-    left: 10px;
-    background: url(images/controls.png) no-repeat 0 -32px;
-  }
-
-  .bx-next {
-    right: 10px;
-    background: url(images/controls.png) no-repeat -43px -32px;
-  }
-
-  .bx-prev:hover {
-    background-position: 0 0;
-  }
-
-  .bx-next:hover {
-    background-position: -43px 0;
-  }
-
   .bx-controls-direction a {
     position: absolute;
     top: 50%;

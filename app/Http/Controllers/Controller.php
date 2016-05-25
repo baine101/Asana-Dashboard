@@ -87,31 +87,22 @@ class Controller extends BaseController
         //convert tasks object to string
         $tasks = json_decode(json_encode($tasks), true);
 
+        $taskWrapper = null;
 
-        foreach($tasks as $taskWrapKey => $taskWrapper) {
+        foreach($tasks as $taskWrapKey => $taskWrapper);
 
+        if(isset($taskWrapper)){
 
-            if(array_key_exists($taskWrapKey,$tasks)or isset($taskWrapper)){
+            foreach ($taskWrapper as $taskKey => $taskData) {
 
+                    if(array_key_exists($taskKey,$taskWrapper) or isset($taskData['id']) && $taskWrapper[$taskKey]['completed'] == true) {
 
-
-                foreach ($taskWrapper as $taskKey => $taskData) {
-
-
-                    if(array_key_exists($taskKey,$taskWrapper) or isset($taskData['id'])) {
-
-
-
-                        if($taskWrapper[$taskKey]['completed'] == true){
-
-                            unset($tasks['data'][$taskKey]);
-                        }
-
+                        unset($tasks['data'][$taskKey]);
 
                     }
                 }
             }
-        }
+
 
 
         $this->totalTasks += count($tasks['data']);
@@ -167,23 +158,20 @@ class Controller extends BaseController
         $workspace = $this->workspace();
         $workspace = $workspace['data'];
 
+
+        //loops through the workspaces
         foreach ($workspace as $wsKey => $wsData) {
 
             $wsId = $wsData['id'];
             $taskKey = null;
             $userKey = null;
-
-            if (!array_key_exists('name', $wsData) or !isset($wsData['name'])) {
-
-                $masterArray[$wsKey] = true;
-
-            } else {
-                //set first array elements to be workspaces
-                $masterArray[$wsKey] = 'true';
+            //if their is a key set then set first array elements to be workspaces
+            if (array_key_exists('name', $wsData) or isset($wsData['name'])) {
 
                 $masterArray[$wsKey] = $wsData;
                 $masterArray[$wsKey]['active'] = false;
             }
+
 
             //call users function
             $users = $this->users($wsId);
@@ -191,6 +179,7 @@ class Controller extends BaseController
             $users = json_decode(json_encode($users), true);
 
 
+            //loops through each user in the workspace
             foreach ($users['data'] as $userKey => $userData) {
 
                 $userId = $userData['id'];
