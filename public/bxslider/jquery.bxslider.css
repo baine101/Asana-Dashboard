@@ -207,12 +207,3 @@
 }
 
 .bxslider-wrap { visibility: hidden; }
-
-
-.bxslider2{
-	width: 415%; position: relative; transition-duration: 0s; transform: translate3d(-1640px, 0px, 0px);
-}
-.bxslider3{
-
-	width: 415%; position: relative; transition-duration: 0s; transform: translate3d(-3240px, 0px, 0px);
-}
