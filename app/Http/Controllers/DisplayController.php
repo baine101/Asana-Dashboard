@@ -18,6 +18,11 @@ class DisplayController extends Controller
 
         if(Cache::has('asanaData')){
 
+            //$cacheIn = new UpdateController;
+            //store something in the cache
+            //$cacheIn->cacheIn();
+
+
             //get the master value from cache
             $masterArray = Cache::get('asanaData');
 

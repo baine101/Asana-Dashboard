@@ -63,6 +63,7 @@ class Controller extends BaseController
         //convert name object to string
         $userNameArray = json_decode(json_encode($userNameArray), true);
 
+
         return $userNameArray;
         //close users function
     }
@@ -208,6 +209,8 @@ class Controller extends BaseController
                 //add second array elements to workspace witch is users
                 $masterArray[$wsKey]['users'][$userKey]['id'] = $userId;
                 $masterArray[$wsKey]['users'][$userKey]['name'] = $userData['name'];
+                $masterArray[$wsKey]['users'][$userKey]['photo'] = $userData['photo']['image_27x27'];
+
 
 
 
@@ -245,6 +248,7 @@ class Controller extends BaseController
                         //add task array to master array
                         $masterArray[$wsKey]['users'][$userKey]['taskCount'] = $userTaskCount;
                         $masterArray[$wsKey]['users'][$userKey]['tasks'] = $tasks;
+
 
                         if (!array_key_exists('users', $wsData) or !isset($wsData['users'])) {
 
@@ -298,7 +302,6 @@ class Controller extends BaseController
 
             }
         }
-      //dd($masterArray);
 
         $masterArray2 = json_decode(json_encode($masterArray), true);
 

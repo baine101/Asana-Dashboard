@@ -16,8 +16,6 @@ class UpdateController extends Controller
 
             if(Cache::has('asanaData')){
 
-
-                echo"bunya";
                 //for debug
                 //$masterArray = Controller::buildArray();
 
