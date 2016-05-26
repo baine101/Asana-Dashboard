@@ -205,10 +205,11 @@
 .bxslider2{
 	width: 415%; position: relative !important;
 	transition-duration: 5s !important;
-	transform: translate3d(-3240px, 0px, 0px) !important;
+	transform: translate3d(-1640px, 0px, 0px) !important;
+
 }
 .bxslider3{
 	width: 415%; position: relative !important;
 	transition-duration: 5s !important;
-	transform: translate3d(-1640px, 0px, 0px) !important;
+	transform: translate3d(-3240px, 0px, 0px) !important;
 }

@@ -95,9 +95,12 @@ class Controller extends BaseController
 
             foreach ($taskWrapper as $taskKey => $taskData) {
 
-                    if(array_key_exists($taskKey,$taskWrapper) or isset($taskData['id']) && $taskWrapper[$taskKey]['completed'] == true) {
+                    if(array_key_exists($taskKey,$taskWrapper) or isset($taskData['id'])) {
 
-                        unset($tasks['data'][$taskKey]);
+                        if ($taskWrapper[$taskKey]['completed'] == true){
+
+                            unset($tasks['data'][$taskKey]);
+                        }
 
                     }
                 }
@@ -251,18 +254,14 @@ class Controller extends BaseController
 
 
                 }
-
             }
-
-
 
         }
 
 
         $masterArray = $this->percent($masterArray);
 
-        //if  is set do this  :: or if user isnt set dont do this
-
+        //if  is set do this  :: or if user isn't set don't do this
         foreach ($masterArray as $wsKey => $wsData) {
 
             if (isset($wsData['users'])) {
@@ -295,7 +294,6 @@ class Controller extends BaseController
         $masterArray2 = json_decode(json_encode($masterArray), true);
 
         return $masterArray2;
-
     }
 //close controller class
 }
