@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
     @foreach($masterArray as $masterKey => $workspace)
 
 
@@ -21,6 +23,7 @@
                     <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
                         <div class="title text-center">
                             <p class="stats">Uncompleted Tasks {{$workspace['totalTasks']}} |</p>
+                            <input type="hidden" id="userCount" value="{{$workspace['userCount']}}">
                         </div>
                     </div>
                 </div>
@@ -31,9 +34,12 @@
                 <!-- users -->
 
                 @if(array_key_exists('users',$workspace) or isset($workspace['users']))
-                    <ul class="bxslider2"><li>
+                    <ul class="bxslider"><li>
                             {{-- */$userCount = 0; /* --}}
                     @foreach($workspace['users'] as $userIndex => $users)
+
+
+                                    {{--*/ var_dump($workspace['userCount']); /*--}}
 
 
                                 <!-- setting userCount variable -->
@@ -41,8 +47,10 @@
 
                         <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12 card">
 
-                            <div class="flip-container">
-                                <div class="flipper">
+                            <div id="{{$userIndex}}" class="flip-container">
+                                <div  class="flipper">
+
+
 
                                     @if(array_key_exists('tasks',$users) or isset($users['tasks']))
 
@@ -133,9 +141,10 @@
                         </div>
 
 
-                               @if(($userCount % 8) == 0 )
-                               </li> <li>
+                                @if(($userCount % 8) == 0 )
+                                </li><li>
                                 @endif
+
                     @endforeach
                     </ul> </div>
             </div>

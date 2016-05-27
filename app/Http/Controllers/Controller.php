@@ -93,6 +93,8 @@ class Controller extends BaseController
 
         if(isset($taskWrapper)){
 
+
+
             foreach ($taskWrapper as $taskKey => $taskData) {
 
                     if(array_key_exists($taskKey,$taskWrapper) or isset($taskData['id'])) {
@@ -180,6 +182,12 @@ class Controller extends BaseController
             $users = $this->users($wsId);
             //convert users object to string
             $users = json_decode(json_encode($users), true);
+
+            $userCount = count($users['data']);
+            $masterArray[$wsKey]['userCount'] = $userCount;
+
+
+
 
 
             //loops through each user in the workspace

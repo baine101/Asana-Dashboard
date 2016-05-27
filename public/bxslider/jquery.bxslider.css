@@ -19,8 +19,6 @@
 	margin: 0 auto 60px;
 	padding: 0;
 	*zoom: 1;
-	height:100%;
-
 }
 
 .bx-wrapper img {
@@ -38,14 +36,13 @@
 	border:  5px solid #fff;
 	left: -5px;
 	background: #fff;
-	min-height: 90vh !important;
+	
 	/*fix other elements on the page moving (on Chrome)*/
 	-webkit-transform: translatez(0);
 	-moz-transform: translatez(0);
-	-ms-transform: translatez(0);
-	-o-transform: translatez(0);
-	transform: translatez(0);
-	height: 85%;
+    	-ms-transform: translatez(0);
+    	-o-transform: translatez(0);
+    	transform: translatez(0);
 }
 
 .bx-wrapper .bx-pager,
@@ -67,7 +64,7 @@
 	left: 0;
 	z-index: 2000;
 }
-.bxslider-wrap { visibility: hidden; }
+
 /* PAGER */
 
 .bx-wrapper .bx-pager {
@@ -104,7 +101,7 @@
 	background: #000;
 }
 
-/* DIRECTION CONTROLS (NEXT / PREV) */
+/* DIRECTION CONTROLS (NEXT / PREV)
 
 .bx-wrapper .bx-prev {
 	left: 10px;
@@ -139,7 +136,9 @@
 	display: none;
 }
 
-/* AUTO CONTROLS (START / STOP) */
+*/
+
+/* AUTO CONTROLS (START / STOP)
 
 .bx-wrapper .bx-controls-auto {
 	text-align: center;
@@ -161,7 +160,7 @@
 }
 
 .bx-wrapper .bx-controls-auto .bx-stop {
-	display: block;
+	display: block;m
 	text-indent: -9999px;
 	width: 9px;
 	height: 11px;
@@ -174,6 +173,7 @@
 .bx-wrapper .bx-controls-auto .bx-stop.active {
 	background-position: -86px -33px;
 }
+*/
 
 /* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
 
@@ -205,5 +205,3 @@
 	font-size: .85em;
 	padding: 10px;
 }
-
-.bxslider-wrap { visibility: hidden; }
