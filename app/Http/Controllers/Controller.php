@@ -68,12 +68,18 @@ class Controller extends BaseController
         //close users function
     }
 
-    public function limitTasks($limTasks)
+    public function limitTasks($tasks)
     {
 
-        $limTasks = array_slice($limTasks, 0, 6);
+        $limTasksArray = [];
 
-        return $limTasks;
+        $limTasks = array_slice($tasks, 0, 6);
+
+        $limTasksArray[] = $limTasks;
+        $limTasksArray[] = $tasks;
+
+       // dd($limTasksArray);
+        return $limTasksArray;
 
     }
 
@@ -91,10 +97,10 @@ class Controller extends BaseController
 
         foreach($tasks as $taskWrapKey => $taskWrapper);
 
+        //if their is a bunch of tasks set in an array
         if(isset($taskWrapper)){
 
-
-
+            //for each task
             foreach ($taskWrapper as $taskKey => $taskData) {
 
                     if(array_key_exists($taskKey,$taskWrapper) or isset($taskData['id'])) {
@@ -254,9 +260,7 @@ class Controller extends BaseController
 
                             $masterArray[$wsKey]['totalTasks'] = $this->totalTasks;
 
-
                         }
-
 
                     }
 
@@ -284,6 +288,9 @@ class Controller extends BaseController
                         //var_dump($user['tasks']['data']);
 
                          $taskArray = $user['tasks']['data'];
+
+                        dd($taskArray);
+
 
                         //limit tasks to 6
                         $taskLimit = $this::limitTasks($taskArray);

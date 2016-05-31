@@ -19,9 +19,9 @@ class DisplayController extends Controller
         if(Cache::has('asanaData')){
 
             //for debug porposes
-            //$cacheIn = new UpdateController;
+            $cacheIn = new UpdateController;
             //store something in the cache
-            //$cacheIn->cacheIn();
+            $cacheIn->cacheIn();
 
 
             //get the master value from cache

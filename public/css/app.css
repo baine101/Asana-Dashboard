@@ -25,23 +25,29 @@ body {
   height: 15%; }
   .head img {
     max-height: 100px; }
-  .head .imghead1 {
-    display: block;
-    position: relative;
-    float: left;
-    width: 100%; }
-  .head .imghead2 {
-    float: right;
-    margin-bottom: 15px;
-    width: 100%; }
-  .head .title h2 {
-    font-size: 40px;
-    top: 7%;
-    margin: 0;
-    float: left; }
-    .head .title h2 .stats {
-      font-size: 25px;
-      bottom: 0; }
+
+.imghead1 {
+  display: block;
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 50%; }
+
+.imghead2 {
+  display: block;
+  float: right;
+  margin-bottom: 15px;
+  width: 50%;
+  height: 50%; }
+
+.title h2 {
+  font-size: 40px;
+  top: 7%;
+  margin: 0;
+  float: left; }
+  .title h2 .stats {
+    font-size: 25px;
+    bottom: 0; }
 
 .flip-container {
   -webkit-perspective: 1000;

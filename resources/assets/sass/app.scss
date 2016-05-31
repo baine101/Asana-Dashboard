@@ -31,32 +31,35 @@ body {
   img {
     max-height: 100px;
   }
-  .imghead1 {
-    display: block;
-    position: relative;
-    float: left;
-    width: 100%;
-  }
-  .imghead2 {
-    float: right;
-    margin-bottom: 15px;
-    width:100%;
-  }
-  .title {
-
-    h2 {
-      .stats{
-        font-size: 25px;
-        bottom: 0;
-      }
-      font-size: 40px;
-      top: 7%;
-      margin: 0;
-      float: left;
-    }
-  }
 }
 
+.imghead1 {
+  display: block;
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 50%;
+}
+.imghead2 {
+  display: block;
+  float: right;
+  margin-bottom: 15px;
+  width:50%;
+  height: 50%;
+}
+.title {
+
+  h2 {
+    .stats{
+      font-size: 25px;
+      bottom: 0;
+    }
+    font-size: 40px;
+    top: 7%;
+    margin: 0;
+    float: left;
+  }
+}
 .flip-container {
   -webkit-perspective: 1000;
   -moz-perspective: 1000;
