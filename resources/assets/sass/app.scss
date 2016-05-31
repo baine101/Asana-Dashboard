@@ -44,8 +44,11 @@ body {
   }
   .title {
 
-    p {
-      position: absolute;
+    h2 {
+      .stats{
+        font-size: 25px;
+        bottom: 0;
+      }
       font-size: 40px;
       top: 7%;
       margin: 0;
@@ -64,7 +67,7 @@ body {
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
 
-  color: #000000;
+  color: #FFFFFF;
   text-align: center;
   margin-bottom: 15px;
   border-radius: 5px;
@@ -93,7 +96,7 @@ body {
     }
     // hide back of pane during swap //
     .front, .back {
-      color: #000000;
+      color: #FFFFFF;
       -webkit-backface-visibility: hidden;
       -moz-backface-visibility: hidden;
       -ms-backface-visibility: hidden;
@@ -127,52 +130,52 @@ body {
       transform: rotateY(0deg);
       width: 100%;
       height: $flipper-height;
-      border: 2px solid #ccc;
+      border: 2px solid #000;
       border-radius: 1px;
-      background: #ffffff;
+      background: #000000;
       z-index: 2;
       margin-bottom: 10px;
       .task {
-        color: #FFFFFF;
-        background: rgba(0, 0, 0, 0.83);
+        color: #000000;
+        background: #ffffff;
         margin: 5px;
         height: 11.37%;
         min-height: 10%;
         text-align: left;
         overflow: hidden;
         font-weight: bold;
-        border: 1px solid #ccc;
+        border: 1px solid #000;
         border-radius: 1px;
       }
       .task:hover {
-        color: #FFFFFF;
-        background: #000000;
+        color: #000000;
+        background: #ffffff;
         margin: 5px;
         height: 12.5%;
         min-height: 10%;
         text-align: left;
         overflow: visible;
         font-weight: bold;
-        border: 1px solid #ccc;
+        border: 1px solid #000;
         border-radius: 1px;
       }
     }
 
     //back, initially hidden pane
     .back {
-      color: #000000;
+      color: #ffffff;
       width: 100%;
       height: $flipper-height;
-      border: 2px solid #dcdcdc;
+      border: 2px solid #000;
       border-radius: 1px;
-      background: #ffffff;
+      background: #000000;
       -webkit-transform: rotateY(-180deg);
       -moz-transform: rotateY(-180deg);
       -o-transform: rotateY(-180deg);
       -ms-transform: rotateY(-180deg);
       transform: rotateY(-180deg);
       p {
-        color: #000000;
+        color: #ffffff;
         font-weight: bold;
       }
       .chart {

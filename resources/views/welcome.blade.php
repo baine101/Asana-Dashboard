@@ -22,7 +22,7 @@
 
                     <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
                         <div class="title text-center">
-                            <p class="stats">Uncompleted Tasks {{$workspace['totalTasks']}} |</p>
+                            <h2 class="stats">Uncompleted Tasks {{$workspace['totalTasks']}}</h2>
                             <input type="hidden" id="userCount" value="{{$workspace['userCount']}}">
                         </div>
                     </div>
@@ -37,10 +37,6 @@
                     <ul class="bxslider"><li>
                             {{-- */$userCount = 0; /* --}}
                     @foreach($workspace['users'] as $userIndex => $users)
-
-
-                                    {{--*/ var_dump($workspace['userCount']); /*--}}
-
 
                                 <!-- setting userCount variable -->
                                 {{-- */$userCount++; /* --}}

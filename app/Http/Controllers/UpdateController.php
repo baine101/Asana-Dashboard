@@ -17,7 +17,7 @@ class UpdateController extends Controller
             if(Cache::has('asanaData')){
 
                 //for debug
-                $masterArray = Controller::buildArray();
+                //$masterArray = Controller::buildArray();
 
             }else{
 
