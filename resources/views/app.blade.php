@@ -34,9 +34,8 @@
         $(window).ready(function () {
             $('.bxslider').bxSlider({
                 responsive: true,
-                infiniteLoop: true,
                 auto: true,
-                pause: 60000,
+                pause: 2000,
                 autoStart: true,
                 controls: false
             });
@@ -81,12 +80,12 @@
                        setInterval(function () {
                            //add hover class to flip container
                             flipContainer(elem.eq(index));
-                        },30000)
+                        },1000)
                     }, index * 500)
                 }
             });
 
-        }, 2000);
+        }, 500);
     });
 
 </script>

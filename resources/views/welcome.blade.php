@@ -11,9 +11,6 @@
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-2 col-md-4 col-sm-12 col-xs-12">
-                        <img class="imghead1" src="{{URL::asset('images/asana-dash.png')}}">
-                    </div>
 
                     <div class="col-lg-4 col-xs-12 col-sm-12 col-md-4 imghead2">
                         <img class="imghead2"  src="{{URL::asset('images/logo.png')}}">
@@ -22,7 +19,7 @@
 
                     <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
                         <div class="title text-center">
-                            <h2 class="stats">Uncompleted Tasks {{$workspace['totalTasks']}}</h2>
+                            <h2 class="stats">Tasks {{$workspace['totalTasks']}}</h2>
                             <input type="hidden" id="userCount" value="{{$workspace['userCount']}}">
                         </div>
                     </div>
@@ -83,12 +80,13 @@
 
                                             <div class="chart">
 
-                                                <canvas id="{{$users['id']}}" width="25" height="25"></canvas>
+                                                <canvas id="{{$users['id']}}" width="50" height="50"></canvas>
 
                                             </div>
 
                                                 <script type="text/javascript">
-                                                jQuery(function() {
+                                                setTimeout( function(){
+                                                    jQuery(function() {
                                                         function percentChart() {
 
                                                         // var id =  $('[id^=name-').each(function(key, value) { var id = value.val() });
@@ -127,6 +125,7 @@
 
                                                     percentChart();
                                                 });
+                                                },3000);
                                                 </script>
 
                                         @endif
@@ -137,9 +136,13 @@
                         </div>
 
 
-                                @if(($userCount % 8) == 0 )
+                                @if(($userCount % 4) == 0 )
                                 </li><li>
                                 @endif
+
+                        @if(!isset($users['id']))
+                            </li>
+                        @endif
 
                     @endforeach
                     </ul> </div>

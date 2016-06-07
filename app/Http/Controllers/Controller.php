@@ -71,15 +71,10 @@ class Controller extends BaseController
     public function limitTasks($tasks)
     {
 
-        $limTasksArray = [];
+        $limTasks = array_slice($tasks, 0, 11);
 
-        $limTasks = array_slice($tasks, 0, 6);
 
-        $limTasksArray[] = $limTasks;
-        $limTasksArray[] = $tasks;
-
-       // dd($limTasksArray);
-        return $limTasksArray;
+        return $limTasks;
 
     }
 
@@ -223,6 +218,7 @@ class Controller extends BaseController
                 //call tasks function
                 $tasks = $this::tasks($wsId, $userId);
 
+
                 foreach ($tasks as $taskWrapperKey => $taskWrapper) {
 
 
@@ -289,7 +285,7 @@ class Controller extends BaseController
 
                          $taskArray = $user['tasks']['data'];
 
-                        dd($taskArray);
+                        //dd($taskArray);
 
 
                         //limit tasks to 6

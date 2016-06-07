@@ -75,6 +75,7 @@
 	color: #000;
 	padding-top: 20px;
 }
+.bx-viewport li { min-height: 1px; min-width: 1px; }
 
 .bx-wrapper .bx-pager .bx-pager-item,
 .bx-wrapper .bx-controls-auto .bx-controls-auto-item {
